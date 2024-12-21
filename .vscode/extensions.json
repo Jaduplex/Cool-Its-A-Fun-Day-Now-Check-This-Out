@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "nadako.vshaxe",
+    "wiggin77.codedox",
+    "vshaxe.hxcpp-debugger",
+    "openfl.lime-vscode-extension",
+    "esbenp.prettier-vscode",
+    "redhat.vscode-xml",
+    "ryanluker.vscode-coverage-gutters",
+    "vshaxe.haxe-debug",
+    "waderyan.gitblame",
+    "github.vscode-pull-request-github",
+    "haxefoundation.haxe-hl",
+    "vshaxe.haxe-extension-pack",
+    "stxr.iconfont-preview",
+    "ms-vscode.live-server",
+    "slevesque.shader",
+    "stevensona.shader-toy",
+    "ms-vscode-remote.remote-wsl",
+    "dotjoshjohnson.xml"
+  ]
+}

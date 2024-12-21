@@ -1,0 +1,21 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": true,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/destitution/mark_annoyed",
+  "position": [0, 0],
+  "healthicon": "mark",
+  "flip_x": false,
+  "healthbar_colors": [151, 38, 19],
+  "camera_position": [-96, -96],
+  "sing_duration": 15,
+  "scale": 2
+}

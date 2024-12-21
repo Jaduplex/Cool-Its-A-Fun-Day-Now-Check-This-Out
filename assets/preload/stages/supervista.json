@@ -1,0 +1,15 @@
+{
+  "defaultZoom": 0.9,
+
+  "boyfriend": [764, 344],
+  "girlfriend": [96, 86],
+  "opponent": [-254, 194],
+  "hide_girlfriend": false,
+
+  "camera_boyfriend": [0, 0],
+  "camera_opponent": [0, 0],
+  "camera_girlfriend": [0, 0],
+  "camera_speed": 1,
+
+  "artist": "Cynda"
+}

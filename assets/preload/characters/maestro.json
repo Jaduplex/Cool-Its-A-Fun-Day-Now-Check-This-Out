@@ -1,0 +1,106 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singLEFT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "left"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singDOWN",
+      "indices": [],
+      "name": "down",
+      "hasTransition": true
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singUP",
+      "indices": [],
+      "name": "up",
+      "hasTransition": true
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singRIGHT",
+      "indices": [],
+      "name": "right",
+      "hasTransition": true
+    },
+    {
+      "loop": true,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "idle",
+      "indices": [],
+      "name": "idle"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singLEFT-alt",
+      "indices": [],
+      "name": "altleft",
+      "hasTransition": false
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singDOWN-alt",
+      "indices": [],
+      "name": "altdown",
+      "hasTransition": false
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singUP-alt",
+      "indices": [],
+      "name": "altup",
+      "hasTransition": false
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singRIGHT-alt",
+      "indices": [],
+      "name": "altright",
+      "hasTransition": false
+    },
+    {
+      "loop": true,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "idle-alt",
+      "indices": [],
+      "name": "altidle"
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/dsides/maestro",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "maestro",
+  "flip_x": false,
+  "healthbar_colors": [89, 84, 63],
+  "aaAtlas": false,
+  "camera_position": [-100, -100],
+  "sing_duration": 15,
+  "scale": 2,
+  "_editor_isPlayer": null
+}

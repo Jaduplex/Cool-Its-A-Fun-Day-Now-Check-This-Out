@@ -1,0 +1,41 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "firstDeath",
+      "fps": 24,
+      "name": "die",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "deathLoop",
+      "fps": 24,
+      "name": "loop",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "deathConfirm",
+      "fps": 24,
+      "name": "retry",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/shared/nopeboy_basic_death",
+  "position": [0, 0],
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [49, 176, 209],
+  "camera_position": [132, -32],
+  "sing_duration": 4,
+  "scale": 1.3,
+  "artist": "Cynda, louiefan24",
+  "animator": "Cynda",
+  "whoDoneWhat": "Cynda did model and animation/nlouiefan24 did faces",
+  "_editor_isPlayer": true
+}

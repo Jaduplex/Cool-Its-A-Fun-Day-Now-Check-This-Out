@@ -1,0 +1,61 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singLEFT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "left"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singDOWN",
+      "indices": [],
+      "hasTransition": true,
+      "name": "down"
+    },
+    {
+      "loop": false,
+      "hasTransition": true,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singUP",
+      "indices": [],
+      "name": "up"
+    },
+    {
+      "loop": false,
+      "hasTransition": true,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singRIGHT",
+      "indices": [],
+      "name": "right"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "idle",
+      "indices": [],
+      "name": "idle"
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/superseded/creature",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "item",
+  "flip_x": false,
+  "healthbar_colors": [0, 204, 153],
+  "camera_position": [-196, 64],
+  "sing_duration": 15,
+  "scale": 1,
+  "_editor_isPlayer": null
+}

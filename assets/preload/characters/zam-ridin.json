@@ -1,0 +1,61 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN",
+      "fps": 24,
+      "name": "down",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP",
+      "fps": 24,
+      "name": "up",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT",
+      "fps": 24,
+      "name": "right",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": true,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/destitution/zamboni_ridin",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "zam",
+  "flip_x": false,
+  "healthbar_colors": [255, 255, 255],
+  "camera_position": [0, 0],
+  "sing_duration": 15,
+  "scale": 6,
+  "_editor_isPlayer": null
+}

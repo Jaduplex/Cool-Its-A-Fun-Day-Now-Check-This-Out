@@ -1,0 +1,85 @@
+{
+  "animations": [
+    {
+      "offsets": [202, 44],
+      "loop": false,
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left",
+      "indices": [],
+      "hasTransition": true
+    },
+    {
+      "offsets": [-138, 98],
+      "loop": false,
+      "anim": "singDOWN",
+      "fps": 24,
+      "name": "down",
+      "indices": [],
+      "hasTransition": true
+    },
+    {
+      "offsets": [-16, 148],
+      "loop": false,
+      "anim": "singUP",
+      "fps": 24,
+      "name": "up",
+      "indices": [],
+      "hasTransition": true
+    },
+    {
+      "offsets": [-168, 52],
+      "loop": false,
+      "anim": "singRIGHT",
+      "fps": 24,
+      "name": "right",
+      "indices": [],
+      "hasTransition": true
+    },
+    {
+      "offsets": [-144, 26],
+      "loop": false,
+      "anim": "danceRight",
+      "fps": 24,
+      "name": "danceRight",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "danceLeft",
+      "fps": 24,
+      "name": "danceLeft",
+      "indices": []
+    },
+    {
+      "offsets": [-144, -68],
+      "loop": false,
+      "anim": "bark",
+      "fps": 24,
+      "name": "bark",
+      "indices": []
+    },
+    {
+      "offsets": [164, -6],
+      "loop": false,
+      "anim": "gameover",
+      "fps": 24,
+      "name": "gameover",
+      "indices": []
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/dsides/zamboney",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "boney",
+  "flip_x": false,
+  "healthbar_colors": [255, 255, 255],
+  "camera_position": [-264, -56],
+  "sing_duration": 15,
+  "scale": 2,
+  "_editor_isPlayer": null
+}

@@ -1,0 +1,38 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "firstDeath",
+      "fps": 24,
+      "name": "die",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "deathLoop",
+      "fps": 24,
+      "name": "dead",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "deathConfirm",
+      "fps": 24,
+      "name": "retry",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/dsides/death",
+  "position": [0, 0],
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [49, 176, 209],
+  "camera_position": [64, 32],
+  "sing_duration": 4,
+  "scale": 1,
+  "_editor_isPlayer": true
+}

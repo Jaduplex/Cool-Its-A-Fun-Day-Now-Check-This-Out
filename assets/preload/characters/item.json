@@ -1,0 +1,73 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singLEFT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "left"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singDOWN",
+      "indices": [],
+      "hasTransition": true,
+      "name": "down"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singUP",
+      "indices": [],
+      "hasTransition": true,
+      "name": "up"
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "singRIGHT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "right"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "idle",
+      "indices": [],
+      "name": "idle"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": true,
+      "fps": 24,
+      "anim": "floaty space mcgee",
+      "indices": [],
+      "name": "floaty space mcgee"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "gameover",
+      "indices": [],
+      "name": "gameover"
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/destitution/i_liek_item",
+  "position": [0, 48],
+  "healthicon": "item",
+  "flip_x": false,
+  "healthbar_colors": [0, 204, 153],
+  "camera_position": [-696, -96],
+  "sing_duration": 15,
+  "scale": 1.5
+}

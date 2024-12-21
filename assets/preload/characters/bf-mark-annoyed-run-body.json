@@ -1,0 +1,25 @@
+{
+  "animations": [
+    {
+      "loop": true,
+      "offsets": [0, 0],
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/destitution/mark_annoyed_bf",
+  "position": [0, 0],
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [14, 133, 163],
+  "camera_position": [224, -32],
+  "sing_duration": 15,
+  "scale": 2,
+  "artist": "Cynda, louiefan24",
+  "animator": "PhoneyX",
+  "whoDoneWhat": "PhoneyX animated sprites\nlouiefan24 did faces\nCynda made model",
+  "_editor_isPlayer": true
+}

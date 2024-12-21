@@ -1,0 +1,113 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left0",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN",
+      "fps": 24,
+      "name": "down0",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP",
+      "fps": 24,
+      "name": "up0",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "right0",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle0",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT-mh",
+      "fps": 24,
+      "name": "left-mh",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN-mh",
+      "fps": 24,
+      "name": "down-mh",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP-mh",
+      "fps": 24,
+      "name": "up-mh",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT-mh",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "right",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "idle-mh",
+      "fps": 24,
+      "name": "idle-mh",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "fps": 24,
+      "anim": "gameover",
+      "indices": [],
+      "name": "gameover"
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/superseded/mark_old",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "mark-old",
+  "flip_x": false,
+  "healthbar_colors": [151, 38, 19],
+  "camera_position": [-144, 32],
+  "sing_duration": 15,
+  "scale": 1,
+  "_editor_isPlayer": null
+}

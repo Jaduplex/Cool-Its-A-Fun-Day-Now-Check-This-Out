@@ -1,0 +1,107 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "idle",
+      "indices": [],
+      "name": "idle"
+    },
+    {
+      "offsets": [-6, -4],
+      "loop": false,
+      "fps": 24,
+      "anim": "hey",
+      "indices": [],
+      "hasTransition": true,
+      "name": "hey"
+    },
+    {
+      "offsets": [2, -12],
+      "loop": false,
+      "fps": 24,
+      "anim": "singLEFT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "left"
+    },
+    {
+      "offsets": [8, 284],
+      "loop": false,
+      "fps": 24,
+      "anim": "singDOWN",
+      "hasTransition": true,
+      "indices": [],
+      "name": "down"
+    },
+    {
+      "offsets": [-8, 262],
+      "loop": false,
+      "fps": 24,
+      "anim": "singUP",
+      "hasTransition": true,
+      "indices": [],
+      "name": "up"
+    },
+    {
+      "offsets": [-8, -2],
+      "loop": false,
+      "fps": 24,
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "indices": [],
+      "name": "right"
+    },
+    {
+      "offsets": [62, 8],
+      "loop": false,
+      "fps": 24,
+      "anim": "singLEFTmiss",
+      "hasTransition": true,
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [62, 8],
+      "loop": false,
+      "fps": 24,
+      "anim": "singDOWNmiss",
+      "hasTransition": true,
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [62, 8],
+      "loop": false,
+      "fps": 24,
+      "anim": "singUPmiss",
+      "hasTransition": true,
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [62, 8],
+      "loop": false,
+      "fps": 24,
+      "anim": "singRIGHTmiss",
+      "hasTransition": true,
+      "indices": [],
+      "name": "miss"
+    }
+  ],
+  "animator": "PhoneyX, Cynda",
+  "no_antialiasing": true,
+  "artist": "Cynda, louiefan24",
+  "image": "characters/shared/nopeboy",
+  "position": [26, 84],
+  "whoDoneWhat": "PhoneyX animated sprites\nlouiefan24 did faces\nCynda made model and animated stock certificate in up pose",
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [14, 133, 163],
+  "aaAtlas": false,
+  "camera_position": [262, -356],
+  "sing_duration": 15,
+  "scale": 1.5,
+  "_editor_isPlayer": true
+}

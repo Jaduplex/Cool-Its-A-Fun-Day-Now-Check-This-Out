@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<app title="The Destitution Mod" file="The Destitution Mod"
+		packageName="com.teamproductionspresents.thedestitutionmod"
+		package="com.teamproductionspresents.thedestitutionmod"
+		main="Main"
+		version="3.0.0"
+		company="Team Productions Presents" />
+
+	<app preloader="FunkinPreloader" />
+
+	<set name="SWF_VERSION" value="11.8" />
+
+	<window width="800" height="600" fps="240" background="#000000" hardware="true" vsync="false" />
+
+	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false" />
+
+	<set name="BUILD_DIR" value="export/" />
+
+	<classpath name="source" />
+
+	<define name="VIDEOS_ALLOWED" if="windows" />
+	<define name="CRASH_HANDLER" if="desktop" />
+
+	<define name="PRELOAD_ALL" unless="web" />
+	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL" />
+
+	<library name="videos" preload="true" />
+	<library name="songs" preload="true" />
+	<library name="rhythm" preload="true" />
+	<assets path="assets/preload" rename="assets" preload="true" exclude="*.kra|*.fla|*.wav" />
+
+	<assets path="assets/videos" library="videos" if="VIDEOS_ALLOWED" exclude="*.kra|*.fla" />
+	<assets path="assets/songs" library="songs" exclude="*.kra|*.fla" />
+	<assets path="assets/rhythm" library="rhythm" exclude="*.kra|*.fla" />
+
+	<assets path="assets/fonts" />
+
+	<assets path='art/readme.txt' rename='Mark says Read This, Bubby!.txt' />
+
+	<!-- _______________________________ Libraries ______________________________ -->
+
+	<haxelib name="flixel" />
+	<haxedev set='webgl' />
+
+	<haxelib name="flixel-addons" />
+	<haxelib name="hscript" />
+	<haxelib name="thx.core" />
+	<haxelib name="thx.semver" />
+	<haxelib name="json2object" />
+	<haxelib name="flixel-ui" />
+	<haxelib name="hxCodec" if="VIDEOS_ALLOWED" />
+	<haxelib name="hxdiscord_rpc" if="desktop" />
+	<haxelib name="flxanimate" />
+	<haxelib name="hxcpp-debug-server" />
+
+	<!--Custom haxedefs for destitution mod purposes, such as dev build features and making certain random stuff Not for showcase purposes-->
+	<!--haxedef name="SHOWCASEVIDEO" -->
+	<haxedef name="DEVELOPERBUILD" unless="SHOWCASEVIDEO" />
+	<!--haxedef name="FORCESPORTSEVENT" -->
+
+	<haxedef name="FLX_NO_TOUCH" />
+	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+
+	<haxedef name="HXCPP_GC_BIG_BLOCKS" />
+	<!--haxedef name="HXCPP_GC_DYNAMIC_SIZE"-->
+
+	<!--EXTREMELY dangerous Do NOT enable unless youre STUPID-->
+	<!--haxedef name="HXCPP_GC_MOVING"-->
+
+	<!--Disable the Flixel core debugger. Automatically gets set whenever you compile in release mode!-->
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<haxedef name="NAPE_RELEASE_BUILD" />
+	
+	<haxedef name="LINC_LUA_RELATIVE_DYNAMIC_LIB" />
+
+	<haxedef name="HXCPP_CHECK_POINTER" if="DEVELOPERBUILD"/>
+	<haxedef name="HXCPP_STACK_LINE" if="DEVELOPERBUILD"/>
+	<haxedef name="HXCPP_STACK_TRACE" if="DEVELOPERBUILD"/>
+	<define name="hscriptPos" if="DEVELOPERBUILD"/>
+
+	<haxedef name="message.reporting" value="pretty" />
+
+	<haxedef name="absolute-paths" />
+
+	<icon path="art/iconOG.png" />
+</project>

@@ -1,0 +1,41 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": true,
+      "anim": "walk",
+      "fps": 24,
+      "name": "walk",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "hasTransition": true,
+      "loop": false,
+      "anim": "notice",
+      "fps": 24,
+      "name": "notice",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/destitution/destitution_player_bg",
+  "position": [0, 0],
+  "healthicon": "yuu",
+  "flip_x": false,
+  "healthbar_colors": [105, 27, 11],
+  "camera_position": [0, 0],
+  "sing_duration": 6,
+  "artist": "Cynda",
+  "animator": "Cynda",
+  "whoDoneWhat": "Cynda made model and animated sprites",
+  "scale": 2
+}

@@ -1,0 +1,36 @@
+English (US)
+
+score_text: "Score: {1} | Misses: {2} | Rating: {3}"
+
+section_intro: "SECTION {1}"
+
+rating_blegh: "Blegh!"
+rating_bleck: "Bleck!"
+rating_bad: "Bad!"
+rating_egh: "Egh."
+rating_meh: "Meh."
+rating_good: "Good!"
+rating_great: "Great!"
+rating_incredible: "Incredible!"
+rating_synergy: "Synergy!"
+
+yes: "Yes"
+no: "No"
+
+reset_score_of: "Reset the score of"
+
+pause_died: "Died: {1}"
+pause_section: "Section {1}"
+pause_credits: "Composer: {1}\nCharter: {2}"
+pause_practice: "PRACTICE MODE"
+pause_charting: "CHARTING MODE"
+
+loading_back: "Going Back..."
+
+freeplay_info: "Press Space to listen to the Song / Press Control to open the Gameplay Changers Menu / Press the RESET button to reset your Score and Accuracy."
+freeplay_best: "Best Score: {1}"
+freeplay_variant: "\nSong Variant: {1}\nTab to Switch!"
+
+flash_warning: "Hey, watch out!\nThis Mod contains some flashing lights!\nPress ENTER to disable them now.\nPress ESCAPE to ignore this message.\n(You can turn them off later in the options menu either way.)\nYou've been warned!"
+
+desc_supervista: "they shoudlve called it something like supervista"

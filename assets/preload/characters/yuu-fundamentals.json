@@ -1,0 +1,33 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "cheer",
+      "fps": 24,
+      "hasTransition": true,
+      "name": "cheer",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/fundamentals/yuu",
+  "position": [0, 0],
+  "healthicon": "yuu",
+  "flip_x": false,
+  "healthbar_colors": [105, 27, 11],
+  "camera_position": [0, 0],
+  "sing_duration": 6,
+  "artist": "Cynda",
+  "animator": "Cynda",
+  "whoDoneWhat": "Cynda made model and animated sprites",
+  "scale": 2
+}

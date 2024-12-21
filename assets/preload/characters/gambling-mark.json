@@ -1,0 +1,44 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, 5],
+      "anim": "intro",
+      "fps": 24,
+      "name": "intro",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [0, -1],
+      "anim": "nope",
+      "fps": 24,
+      "name": "nope",
+      "hasTransition": true,
+      "indices": []
+    }
+  ],
+  "animator": "Cynda",
+  "no_antialiasing": false,
+  "artist": "Cynda",
+  "image": "gamble/gambling_mark",
+  "position": [0, 0],
+  "whoDoneWhat": "",
+  "healthicon": "bf",
+  "flip_x": false,
+  "healthbar_colors": [14, 133, 163],
+  "aaAtlas": false,
+  "camera_position": [0, 0],
+  "sing_duration": 15,
+  "scale": 1,
+  "_editor_isPlayer": false
+}

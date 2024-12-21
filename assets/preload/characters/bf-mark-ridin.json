@@ -1,0 +1,97 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN",
+      "fps": 24,
+      "name": "down",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP",
+      "fps": 24,
+      "name": "up",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT",
+      "fps": 24,
+      "name": "right",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT-miss",
+      "fps": 24,
+      "name": "miss",
+      "hasTransition": false,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT-miss",
+      "fps": 24,
+      "name": "miss",
+      "hasTransition": false,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP-miss",
+      "fps": 24,
+      "name": "miss",
+      "hasTransition": false,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN-miss",
+      "fps": 24,
+      "name": "miss",
+      "hasTransition": false,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": true,
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/destitution/bf_ridin",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [14, 133, 163],
+  "camera_position": [0, 0],
+  "sing_duration": 15,
+  "scale": 6,
+  "_editor_isPlayer": null
+}

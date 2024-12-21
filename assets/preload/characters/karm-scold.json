@@ -1,0 +1,125 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singDOWN",
+      "fps": 24,
+      "name": "down",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singUP",
+      "fps": 24,
+      "name": "up",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "right",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "danceLeft",
+      "fps": 24,
+      "name": "danceLeft",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "danceRight",
+      "fps": 24,
+      "name": "danceRight",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singLEFT-alt",
+      "fps": 24,
+      "name": "altleft",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [-46, -60],
+      "loop": false,
+      "anim": "singDOWN-alt",
+      "fps": 24,
+      "name": "altdown",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [10, 10],
+      "loop": false,
+      "anim": "singUP-alt",
+      "fps": 24,
+      "name": "altup",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "singRIGHT-alt",
+      "fps": 24,
+      "name": "altright",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "danceLeft-alt",
+      "fps": 24,
+      "name": "altDanceLeft",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "danceRight-alt",
+      "fps": 24,
+      "name": "altDanceRight",
+      "indices": []
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "anim": "lipsync",
+      "fps": 24,
+      "name": "lipsync",
+      "indices": []
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/dsides/karm",
+  "position": [0, 0],
+  "healthicon": "karm",
+  "flip_x": false,
+  "healthbar_colors": [229, 163, 43],
+  "camera_position": [24, 32],
+  "sing_duration": 15,
+  "scale": 1
+}

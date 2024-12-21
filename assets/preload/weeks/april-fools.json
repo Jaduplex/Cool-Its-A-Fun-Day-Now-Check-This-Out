@@ -1,0 +1,16 @@
+{
+  "songs": [
+    ["FNF-THE-SUPERVISTA", "supervista", [165, 0, 77]]
+  ],
+
+  "weekCharacters": ["", "", ""],
+  "weekBackground": "none",
+
+  "storyName": "April Fools 2025",
+  "weekBefore": "april-fools",
+  "weekName": "April Fools 2025",
+  "startUnlocked": true,
+
+  "hideStoryMode": false,
+  "hideFreeplay": false
+}

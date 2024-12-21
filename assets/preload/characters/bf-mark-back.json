@@ -1,0 +1,93 @@
+{
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "idle",
+      "indices": [],
+      "name": "idle"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singLEFT",
+      "hasTransition": true,
+      "indices": [],
+      "name": "left"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singDOWN",
+      "hasTransition": true,
+      "indices": [],
+      "name": "down"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singUP",
+      "hasTransition": true,
+      "indices": [],
+      "name": "up"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "indices": [],
+      "name": "right"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singLEFTmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singDOWNmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singUPmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [0, 0],
+      "loop": false,
+      "fps": 24,
+      "anim": "singRIGHTmiss",
+      "indices": [],
+      "name": "miss"
+    }
+  ],
+  "no_antialiasing": true,
+  "image": "characters/destitution/zamboni_b",
+  "position": [24, 32],
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [14, 133, 163],
+  "camera_position": [96, -32],
+  "sing_duration": 15,
+  "scale": 1.5,
+  "artist": "Cynda, louiefan24",
+  "animator": "PhoneyX",
+  "whoDoneWhat": "PhoneyX animated sprites\nlouiefan24 did faces\nCynda made model",
+  "_editor_isPlayer": true
+}

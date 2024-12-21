@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="trash.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="close0000" x="4" y="4" width="640" height="480" />
+	<SubTexture name="close0001" x="4" y="4" width="640" height="480" />
+	<SubTexture name="close0002" x="648" y="4" width="640" height="480" />
+	<SubTexture name="close0003" x="648" y="4" width="640" height="480" />
+	<SubTexture name="close0004" x="1292" y="4" width="640" height="480" />
+	<SubTexture name="close0005" x="1292" y="4" width="640" height="480" />
+	<SubTexture name="close0006" x="4" y="488" width="640" height="480" />
+	<SubTexture name="close0007" x="4" y="488" width="640" height="480" />
+	<SubTexture name="close0008" x="648" y="488" width="640" height="480" />
+	<SubTexture name="close0009" x="648" y="488" width="640" height="480" />
+	<SubTexture name="close0010" x="1292" y="488" width="640" height="480" />
+	<SubTexture name="close0011" x="1292" y="488" width="640" height="480" />
+	<SubTexture name="close0012" x="4" y="972" width="640" height="480" />
+	<SubTexture name="close0013" x="4" y="972" width="640" height="480" />
+	<SubTexture name="close0014" x="4" y="1456" width="640" height="480" />
+	<SubTexture name="close0015" x="4" y="1456" width="640" height="480" />
+	<SubTexture name="close0016" x="4" y="1940" width="640" height="480" />
+	<SubTexture name="close0017" x="4" y="1940" width="640" height="480" />
+	<SubTexture name="close0018" x="648" y="972" width="640" height="480" />
+	<SubTexture name="close0019" x="648" y="972" width="640" height="480" />
+	<SubTexture name="close0020" x="648" y="972" width="640" height="480" />
+	<SubTexture name="close0021" x="648" y="972" width="640" height="480" />
+	<SubTexture name="close0022" x="648" y="972" width="640" height="480" />
+	<SubTexture name="close0023" x="648" y="972" width="640" height="480" />
+	<SubTexture name="intro0000" x="1292" y="972" width="640" height="480" />
+	<SubTexture name="intro0001" x="1292" y="972" width="640" height="480" />
+	<SubTexture name="intro0002" x="4" y="972" width="640" height="480" />
+	<SubTexture name="intro0003" x="4" y="972" width="640" height="480" />
+	<SubTexture name="intro0004" x="648" y="1456" width="640" height="480" />
+	<SubTexture name="intro0005" x="648" y="1456" width="640" height="480" />
+	<SubTexture name="intro0006" x="648" y="1940" width="640" height="480" />
+	<SubTexture name="intro0007" x="648" y="1940" width="640" height="480" />
+	<SubTexture name="intro0008" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0009" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0010" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0011" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0012" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0013" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0014" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0015" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0016" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0017" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0018" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0019" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0020" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0021" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0022" x="4" y="4" width="640" height="480" />
+	<SubTexture name="intro0023" x="4" y="4" width="640" height="480" />
+</TextureAtlas>

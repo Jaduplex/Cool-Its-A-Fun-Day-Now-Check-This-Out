@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="songIntro.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="10000" x="264" y="208" width="256" height="200" />
+	<SubTexture name="10001" x="264" y="208" width="256" height="200" />
+	<SubTexture name="10002" x="264" y="412" width="256" height="200" />
+	<SubTexture name="10003" x="264" y="412" width="256" height="200" />
+	<SubTexture name="10004" x="524" y="4" width="256" height="200" />
+	<SubTexture name="10005" x="524" y="4" width="256" height="200" />
+	<SubTexture name="20000" x="4" y="208" width="256" height="200" />
+	<SubTexture name="20001" x="4" y="208" width="256" height="200" />
+	<SubTexture name="20002" x="4" y="412" width="256" height="200" />
+	<SubTexture name="20003" x="4" y="412" width="256" height="200" />
+	<SubTexture name="20004" x="264" y="4" width="256" height="200" />
+	<SubTexture name="20005" x="264" y="4" width="256" height="200" />
+	<SubTexture name="30000" x="4" y="4" width="256" height="200" />
+	<SubTexture name="go0000" x="784" y="4" width="256" height="200" />
+	<SubTexture name="go0001" x="784" y="4" width="256" height="200" />
+	<SubTexture name="go0002" x="524" y="208" width="256" height="200" />
+	<SubTexture name="go0003" x="524" y="208" width="256" height="200" />
+	<SubTexture name="go0004" x="784" y="208" width="256" height="200" />
+	<SubTexture name="go0005" x="784" y="208" width="256" height="200" />
+</TextureAtlas>

@@ -1,0 +1,12 @@
+# ! means a file should be added regardless of it it gets ignored prior.
+export/*
+.vscode/*
+.haxelib/
+*.code-workspace
+.history
+.ionide
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+oxipng.exe

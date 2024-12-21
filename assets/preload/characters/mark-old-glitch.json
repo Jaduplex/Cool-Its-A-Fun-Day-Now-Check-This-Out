@@ -1,0 +1,62 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [70, -112],
+      "fps": 24,
+      "anim": "singLEFT",
+      "indices": [],
+      "hasTransition": true,
+      "name": "left"
+    },
+    {
+      "loop": false,
+      "offsets": [-62, -146],
+      "fps": 24,
+      "anim": "singDOWN",
+      "hasTransition": true,
+      "indices": [],
+      "name": "down"
+    },
+    {
+      "loop": false,
+      "offsets": [-58, -90],
+      "fps": 24,
+      "anim": "singUP",
+      "hasTransition": true,
+      "indices": [],
+      "name": "up"
+    },
+    {
+      "loop": false,
+      "offsets": [-214, -154],
+      "fps": 24,
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "indices": [],
+      "name": "right"
+    },
+    {
+      "loop": true,
+      "offsets": [-56, -76],
+      "anim": "idle",
+      "fps": 12,
+      "hasTransition": false,
+      "name": "idle",
+      "indices": []
+    }
+  ],
+  "animator": null,
+  "no_antialiasing": true,
+  "artist": null,
+  "image": "characters/superseded/giltch",
+  "position": [0, 0],
+  "whoDoneWhat": null,
+  "healthicon": "mark-old",
+  "flip_x": false,
+  "healthbar_colors": [151, 38, 19],
+  "camera_position": [32, -32],
+  "sing_duration": 15,
+  "scale": 2,
+  "_editor_isPlayer": null
+}

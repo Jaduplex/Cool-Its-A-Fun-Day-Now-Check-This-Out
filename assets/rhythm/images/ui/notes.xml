@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="destitution_noteskin.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrowDOWN0000" x="128" y="128" width="105" height="105" />
+	<SubTexture name="arrowLEFT0000" x="248" y="8" width="105" height="105" />
+	<SubTexture name="arrowRIGHT0000" x="8" y="368" width="105" height="105" />
+	<SubTexture name="arrowUP0000" x="128" y="241" width="105" height="105" />
+	<SubTexture name="blue0000" x="361" y="8" width="105" height="105" />
+	<SubTexture name="blue hold end0000" x="354" y="227" width="63" height="63" />
+	<SubTexture name="blue hold piece0000" x="425" y="227" width="63" height="63" />
+	<SubTexture name="down confirm0000" x="8" y="8" width="112" height="112" />
+	<SubTexture name="down press0000" x="241" y="241" width="98" height="98" />
+	<SubTexture name="green0000" x="474" y="8" width="105" height="105" />
+	<SubTexture name="green hold end0000" x="496" y="227" width="63" height="63" />
+	<SubTexture name="green hold piece0000" x="347" y="298" width="63" height="63" />
+	<SubTexture name="left confirm0000" x="8" y="128" width="112" height="112" />
+	<SubTexture name="left press0000" x="241" y="347" width="98" height="98" />
+	<SubTexture name="pruple end hold0000" x="347" y="369" width="63" height="63" />
+	<SubTexture name="purple0000" x="128" y="354" width="105" height="105" />
+	<SubTexture name="purple hold piece0000" x="418" y="298" width="63" height="63" />
+	<SubTexture name="red0000" x="241" y="128" width="105" height="105" />
+	<SubTexture name="red hold end0000" x="418" y="369" width="63" height="63" />
+	<SubTexture name="red hold piece0000" x="489" y="298" width="63" height="63" />
+	<SubTexture name="right confirm0000" x="128" y="8" width="112" height="112" />
+	<SubTexture name="right press0000" x="354" y="121" width="98" height="98" />
+	<SubTexture name="up confirm0000" x="8" y="248" width="112" height="112" />
+	<SubTexture name="up press0000" x="460" y="121" width="98" height="98" />
+</TextureAtlas>

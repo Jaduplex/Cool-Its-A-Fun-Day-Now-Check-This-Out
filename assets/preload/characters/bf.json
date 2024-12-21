@@ -1,0 +1,93 @@
+{
+  "animations": [
+    {
+      "loop": false,
+      "offsets": [0, 0],
+      "anim": "idle",
+      "fps": 24,
+      "name": "idle",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [140, 2],
+      "anim": "singLEFT",
+      "fps": 24,
+      "name": "left",
+      "hasTransition": true,
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [87, 3],
+      "anim": "singDOWN",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "down",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [20, 155],
+      "anim": "singUP",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "up",
+      "indices": []
+    },
+    {
+      "loop": false,
+      "offsets": [-13, 3],
+      "anim": "singRIGHT",
+      "hasTransition": true,
+      "fps": 24,
+      "name": "right",
+      "indices": []
+    },
+    {
+      "offsets": [16, 0],
+      "loop": true,
+      "fps": 24,
+      "anim": "singLEFTmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [16, 0],
+      "loop": true,
+      "fps": 24,
+      "anim": "singDOWNmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [16, 0],
+      "loop": true,
+      "fps": 24,
+      "anim": "singUPmiss",
+      "indices": [],
+      "name": "miss"
+    },
+    {
+      "offsets": [16, 0],
+      "loop": true,
+      "fps": 24,
+      "anim": "singRIGHTmiss",
+      "indices": [],
+      "name": "miss"
+    }
+  ],
+  "no_antialiasing": false,
+  "image": "characters/shared/nopeboy_2d",
+  "position": [48, 264],
+  "healthicon": "bf",
+  "flip_x": true,
+  "healthbar_colors": [14, 133, 163],
+  "camera_position": [164, 24],
+  "sing_duration": 15,
+  "scale": 1,
+  "artist": "Cynda",
+  "animator": "Cynda",
+  "whoDoneWhat": "",
+  "_editor_isPlayer": true
+}
