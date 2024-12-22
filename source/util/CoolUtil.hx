@@ -2,7 +2,6 @@ package util;
 
 import openfl.Lib;
 import flixel.math.FlxPoint;
-import backend.PlayablesData.Playables;
 import sys.thread.Thread;
 import openfl.display.Bitmap;
 import util.macro.GitCommit;
@@ -20,9 +19,7 @@ using StringTools;
 
 class CoolUtil
 {
-  public static var appTitleString:String = "The Destitution Mod v3";
-
-  public static var currentPlayable:Playables = DEFAULT;
+  public static var appTitleString:String = "Cool! It's a Fun Day! Now, Check This Out!";
 
   public static var gitCommitBranch:String = GitCommit.getGitBranch();
 
@@ -178,7 +175,7 @@ class CoolUtil
     return FlxPoint.get(Lib.application.window.x + (Lib.application.window.width / 2), Lib.application.window.y + (Lib.application.window.height / 2));
   }
 
-  public static var savePath:String = "Team-Productions-Presents/The-Destitution-Mod";
+  public static var savePath:String = "Team-Productions-Presents/ProjectThaFoolz";
 
   public static var markAscii:String = "                                                                                                                                     
                                                                                                                                      

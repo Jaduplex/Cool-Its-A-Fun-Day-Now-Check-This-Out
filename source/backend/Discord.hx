@@ -32,11 +32,11 @@ class DiscordClient
     discordHandlers.errored = Callable.fromStaticFunction(onError);
     discordHandlers.disconnected = Callable.fromStaticFunction(onDisconnected);
 
-    Discord.initialize("1104955579979542548", discordHandlers);
+    Discord.initialize("1320141726349918328", discordHandlers);
 
     buttonLeft = DiscordButton.create();
-    buttonLeft.label = "Download";
-    buttonLeft.url = ConstCharStar.fromString('https://gamejolt.com/games/destitution/844229');
+    buttonLeft.label = "Video Game Underground";
+    buttonLeft.url = ConstCharStar.fromString('https://www.youtube.com/playlist?list=PLlbPztvBdi4Y2W07uGkYzi_Q1KRB9u6Tc');
 
     buttonRight = DiscordButton.create();
     buttonRight.label = "Team";
@@ -72,7 +72,7 @@ class DiscordClient
     pres.state = null;
 
     pres.largeImageKey = ConstCharStar.fromString("icon");
-    pres.largeImageText = ConstCharStar.fromString("The Destitution Mod v" + Application.current.meta.get('version'));
+    pres.largeImageText = ConstCharStar.fromString("Cool! It's a Fun Day! Now, Check This Out! v" + Application.current.meta.get('version'));
 
     pres.buttons[0] = buttonLeft;
     pres.buttons[1] = buttonRight;
@@ -107,12 +107,12 @@ class DiscordClient
     var smalley:String = "";
     var stateo:String = state;
     var detailso:String = details;
-    var largoText:String = 'The Destitution Mod v' + Application.current.meta.get('version');
+    var largoText:String = "Cool! It's a Fun Day! Now, Check This Out! v" + Application.current.meta.get('version');
 
     #if DEVELOPERBUILD
     stateo = 'State Redacted';
     detailso = 'Details Redacted';
-    largoText = 'The Destitution Mod (DevBuild ' + CoolUtil.gitCommitBranch + ' : ' + CoolUtil.gitCommitHash + ')';
+    largoText = "my sneaky secret project ;) (DevBuild " + CoolUtil.gitCommitBranch + ' : ' + CoolUtil.gitCommitHash + ')';
     #end
 
     if (smallImageKey != null)

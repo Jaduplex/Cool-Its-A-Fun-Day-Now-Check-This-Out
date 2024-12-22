@@ -1,7 +1,6 @@
 package states;
 
 import ui.TransitionScreenshotObject;
-import states.ResultsState.ResultRanks;
 import util.EaseUtil;
 import visuals.PixelPerfectSprite;
 import lime.app.Application;
@@ -29,17 +28,13 @@ import editors.MasterEditorMenu;
 
 class MainMenuState extends MusicBeatState
 {
-  #if DEVELOPERBUILD
-  private var debugRank:ResultRanks = GOOD;
-  #end
-
   public static var curSelected:Int = 0;
 
   private var menuItems:FlxTypedGroup<MainMenuButton>;
 
   public var camGame:FlxCamera;
 
-  private var optionShit:Array<String> = ['story_mode', 'freeplay', 'lottery', 'options'];
+  private var optionShit:Array<String> = ['freeplay', 'options'];
 
   private var magenta:PixelPerfectSprite;
 
@@ -143,7 +138,7 @@ class MainMenuState extends MusicBeatState
     var versionShit:FlxText = new FlxText(-4, #if DEVELOPERBUILD FlxG.height
       - 44 #else FlxG.height
       - 24 #end, FlxG.width,
-      "The Destitution Mod v"
+      "Cool! It's a Fun Day! Now, Check This Out! v"
       + Application.current.meta.get('version') #if DEVELOPERBUILD
         + "\n(DEV BUILD!!! - "
         + CoolUtil.gitCommitBranch
@@ -181,106 +176,6 @@ class MainMenuState extends MusicBeatState
 
     if (!selectedSomethin)
     {
-      #if DEVELOPERBUILD
-      if (FlxG.keys.justPressed.ONE || FlxG.keys.justPressed.NUMPADONE)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-
-        debugRank = BLEGH;
-        CoolUtil.currentPlayable = DEFAULT;
-      }
-      else if (FlxG.keys.justPressed.TWO || FlxG.keys.justPressed.NUMPADTWO)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-
-        debugRank = GOOD;
-        CoolUtil.currentPlayable = BF;
-      }
-      else if (FlxG.keys.justPressed.THREE || FlxG.keys.justPressed.NUMPADTHREE)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-
-        debugRank = GREAT;
-        CoolUtil.currentPlayable = MARK;
-      }
-      else if (FlxG.keys.justPressed.FOUR || FlxG.keys.justPressed.NUMPADFOUR)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-
-        debugRank = EXCELLENT;
-        CoolUtil.currentPlayable = PEAR;
-      }
-      else if (FlxG.keys.justPressed.FIVE || FlxG.keys.justPressed.NUMPADFIVE)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-
-        debugRank = SYNERGY;
-        CoolUtil.currentPlayable = ARGULOW;
-      }
-
-      if (FlxG.keys.justPressed.TAB)
-      {
-        selectedSomethin = true;
-
-        FlxTransitionableState.skipNextTransIn = true;
-        FlxTransitionableState.skipNextTransOut = true;
-
-        if (FlxG.sound.music != null)
-        {
-          FlxG.sound.music.stop();
-          FlxG.sound.music = null;
-        }
-
-        MusicBeatState.switchState(new ResultsState(999999, 999999, 9999, 999, 99, 9, FlxG.keys.pressed.SHIFT, 99.9, 99, '', debugRank));
-      }
-
-      if (FlxG.keys.justPressed.B)
-      {
-        FlxG.sound.play(Paths.sound('scrollMenu'));
-        ClientPrefs.boiners += 100;
-      }
-
-      if (FlxG.keys.justPressed.U)
-      {
-        FlxG.sound.play(Paths.sound('confirmMenu'));
-
-        ClientPrefs.unlockedQuanta = true;
-        ClientPrefs.unlockedAbstraction = true;
-        ClientPrefs.unlockedBoozeLoze = true;
-
-        ClientPrefs.unlockedGfMixes = true;
-        ClientPrefs.unlockedPearMixes = true;
-
-        ClientPrefs.unlockedMarkMixes = true;
-        ClientPrefs.unlockedKarmMixes = true;
-        ClientPrefs.unlockedYuuMixes = true;
-
-        ClientPrefs.unlockedEviMixes = true;
-        ClientPrefs.unlockedArgulowMixes = true;
-        ClientPrefs.unlockedBaldiMixes = true;
-      }
-
-      if (FlxG.keys.justPressed.O)
-      {
-        FlxG.sound.play(Paths.sound('cancelMenu'));
-
-        ClientPrefs.unlockedQuanta = false;
-        ClientPrefs.unlockedAbstraction = false;
-        ClientPrefs.unlockedBoozeLoze = false;
-
-        ClientPrefs.unlockedGfMixes = false;
-        ClientPrefs.unlockedPearMixes = false;
-
-        ClientPrefs.unlockedMarkMixes = false;
-        ClientPrefs.unlockedKarmMixes = false;
-        ClientPrefs.unlockedYuuMixes = false;
-
-        ClientPrefs.unlockedEviMixes = false;
-        ClientPrefs.unlockedArgulowMixes = false;
-        ClientPrefs.unlockedBaldiMixes = false;
-      }
-      #end
-
       if (controls.UI_UP_P)
       {
         FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -351,22 +246,11 @@ class MainMenuState extends MusicBeatState
 
               switch (daChoice)
               {
-                case 'story_mode':
-                  ClientPrefs.saveSettings();
-                  FlxTransitionableState.skipNextTransIn = false;
-                  FlxTransitionableState.skipNextTransOut = false;
-                  MusicBeatState.switchState(new StoryMenuState());
                 case 'freeplay':
                   ClientPrefs.saveSettings();
                   FlxTransitionableState.skipNextTransIn = true;
                   FlxTransitionableState.skipNextTransOut = true;
-                  MusicBeatState.switchState(new FreeplayState(CoolUtil.currentPlayable));
-                case 'lottery':
-                  // to flush the boiners to the save file because they werent before
-                  ClientPrefs.saveSettings();
-                  FlxTransitionableState.skipNextTransIn = false;
-                  FlxTransitionableState.skipNextTransOut = false;
-                  MusicBeatState.switchState(new LotteryState());
+                  MusicBeatState.switchState(new FreeplayState());
                 case 'options':
                   ClientPrefs.saveSettings();
                   FlxTransitionableState.skipNextTransIn = true;

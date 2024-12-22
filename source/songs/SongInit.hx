@@ -13,32 +13,8 @@ class SongInit
 
     switch (songName.toLowerCase())
     {
-      case 'fundamentals':
-        returnSong = new Fundamentals();
-      case 'destitution':
-        returnSong = new Destitution();
-      case 'superseded':
-        returnSong = new Superseded();
-      case 'd-stitution':
-        returnSong = new DStitution();
-      case 'quickshot':
-        returnSong = new Quickshot();
-      case 'eggshells':
-        returnSong = new Eggshells();
-      case 'eggshells-bad':
-        returnSong = new EggshellsBadEnd();
-      case 'eggshells-good':
-        returnSong = new EggshellsGoodEnd();
-      case 'elsewhere':
-        returnSong = new Elsewhere();
-      case 'collapse':
-        returnSong = new Collapse();
-      case 'megamix':
-        returnSong = new Megamix();
-      case 'quanta':
-        returnSong = new Quanta();
-      case 'abstraction':
-        returnSong = new Abstraction();
+      case 'fnf-the-supervista':
+        returnSong = new Supervista();
     }
 
     try

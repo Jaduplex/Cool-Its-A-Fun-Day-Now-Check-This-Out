@@ -42,8 +42,6 @@ class TitleState extends MusicBeatState
   private var exitButton:PixelPerfectSprite;
   private var playButton:PixelPerfectSprite;
 
-  private var charec:String = 'mark';
-
   private var curWacky:Array<String> = [];
 
   private var tppLogo:PixelPerfectSprite;
@@ -51,8 +49,6 @@ class TitleState extends MusicBeatState
   private var skippedIntro:Bool = false;
 
   private var logo:PixelPerfectSprite;
-
-  private var titleCharacter:PixelPerfectSprite;
 
   private var swagShader:ColorSwap = null;
 
@@ -92,17 +88,6 @@ class TitleState extends MusicBeatState
     }
 
     swagShader = new ColorSwap();
-
-    charec = getTitleCharacter();
-
-    titleCharacter = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/char/$charec'), true, 320, 360);
-    titleCharacter.animation.add(charec, [0, 1], 0, false);
-    titleCharacter.animation.play(charec, true);
-    titleCharacter.antialiasing = false;
-    titleCharacter.scale.set(2, 2);
-    titleCharacter.updateHitbox();
-    titleCharacter.shader = swagShader.shader;
-    add(titleCharacter);
 
     var objects:PixelPerfectSprite = new PixelPerfectSprite(640, 0).loadGraphic(Paths.image('title/obj'));
     objects.antialiasing = false;
@@ -303,12 +288,8 @@ class TitleState extends MusicBeatState
   {
     closeSequenceStarted = true;
 
-    titleCharacter.animation.curAnim.curFrame = 0;
-
     FlxG.sound.music.stop();
     FlxG.sound.music = null;
-
-    FlxG.sound.play(Paths.sound('titleExit/$charec'), 1, false);
 
     FlxTween.tween(playButton, {'scale.x': 0.01, 'scale.y': 0.01}, 0.25,
       {
@@ -400,21 +381,6 @@ class TitleState extends MusicBeatState
       logo.animation.play('bump', true);
     }
 
-    if (titleCharacter != null)
-    {
-      if (titleCharacter.animation.curAnim != null)
-      {
-        if (titleCharacter.animation.curAnim.curFrame == 0)
-        {
-          titleCharacter.animation.curAnim.curFrame = 1;
-        }
-        else
-        {
-          titleCharacter.animation.curAnim.curFrame = 0;
-        }
-      }
-    }
-
     if (!closedState && !quitDoingIntroShit)
     {
       switch (curBeat)
@@ -432,11 +398,11 @@ class TitleState extends MusicBeatState
         case 7:
           deleteCoolText();
         case 8:
-          addMoreText('The');
+          addMoreText('Cool!');
         case 10:
-          addMoreText('Destitution');
+          addMoreText("It's a Fun Day!");
         case 12:
-          addMoreText('Mod');
+          addMoreText('Now, Check This Out!');
         case 15:
           skipIntro();
       }
@@ -476,95 +442,6 @@ class TitleState extends MusicBeatState
 
       skippedIntro = true;
     }
-  }
-
-  /**
-   * seperate function for cleanliness
-   * @return the character name
-   */
-  function getTitleCharacter():String
-  {
-    var arrey:Array<String> = ['bf', 'crypteh', 'ili', 'karm', 'mark', 'ploinky', 'rulez', 'whale'];
-    var char:String = 'mark';
-
-    // the rare chance characters
-    if (RandomUtil.randomSecrets.bool(5))
-    {
-      arrey = ['blocken', 'plant'];
-    }
-
-    if (getHolidayCharacter() != null)
-    {
-      arrey = [getHolidayCharacter()];
-    }
-
-    char = arrey[RandomUtil.randomVisuals.int(0, arrey.length - 1)];
-
-    if (Paths.image('title/char/$char', null, true) == null)
-    {
-      char = 'mark';
-    }
-
-    #if SHOWCASEVIDEO
-    // force set to mark for showcase video, cuz i want it to be as non random as possible.
-    char = 'mark';
-    #end
-
-    return char;
-  }
-
-  function getHolidayCharacter():String
-  {
-    var dayLol = Date.now();
-
-    if (dayLol.getMonth() == 11 && (dayLol.getDate() == 24 || dayLol.getDate() == 25))
-    {
-      return 'christmas';
-    }
-
-    if ((dayLol.getMonth() == 0 && dayLol.getDate() == 31) || (dayLol.getMonth() == 0 && dayLol.getDate() == 1))
-    {
-      return 'newyear';
-    }
-
-    if ((dayLol.getMonth() == 2 && dayLol.getDate() == 17))
-    {
-      return 'patricks';
-    }
-
-    if ((dayLol.getMonth() == 1 && dayLol.getDate() == 14))
-    {
-      return 'valentines';
-    }
-
-    if ((dayLol.getMonth() == 6 && dayLol.getDate() == 4))
-    {
-      return 'july';
-    }
-
-    if ((dayLol.getMonth() == 9 && dayLol.getDate() == 31))
-    {
-      return 'halloween';
-    }
-
-    // literally every possible easter lmao
-    if ((dayLol.getMonth() == 3 && (dayLol.getDate() == 20 || dayLol.getDate() == 13 || dayLol.getDate() == 6))
-      || (dayLol.getMonth() == 2 && (dayLol.getDate() == 31 || dayLol.getDate() == 24)))
-    {
-      return 'easter';
-    }
-
-    // same for thanksgiving
-    // fuck dynamic holidays
-    if ((dayLol.getMonth() == 10
-      && dayLol.getDay() == 4
-      && (dayLol.getDate() == 22 || dayLol.getDate() == 23 || dayLol.getDate() == 24 || dayLol.getDate() == 25 || dayLol.getDate() == 26
-        || dayLol.getDate() == 27 || dayLol.getDate() == 28)))
-    {
-      return 'thanks';
-    }
-
-    return null;
   }
 
   override public function onFocusLost():Void

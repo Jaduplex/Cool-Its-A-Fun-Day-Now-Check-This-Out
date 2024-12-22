@@ -29,7 +29,7 @@ class SongClass
 
   public var skipCountdown:Bool = false;
 
-  public var preloadCharacters:Array<String> = ["bf-mark", "gf", "stop-loading"];
+  public var preloadCharacters:Array<String> = ["bf", "gf", "stop-loading"];
 
   public var introCardBeat:Int = 0;
 

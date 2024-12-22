@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-	<app title="The Destitution Mod" file="The Destitution Mod"
-		packageName="com.teamproductionspresents.thedestitutionmod"
-		package="com.teamproductionspresents.thedestitutionmod"
+	<app title="Cool! It's a Fun Day! Now, Check This Out!" file="ohhhh im foolin"
+		packageName="com.teamproductionspresents.coolitsafundaynowcheckthisout"
+		package="com.teamproductionspresents.coolitsafundaynowcheckthisout"
 		main="Main"
-		version="3.0.0"
+		version="2025.0.0"
 		company="Team Productions Presents" />
 
 	<app preloader="FunkinPreloader" />
@@ -36,7 +36,7 @@
 
 	<assets path="assets/fonts" />
 
-	<assets path='art/readme.txt' rename='Mark says Read This, Bubby!.txt' />
+	<assets path='art/readme.txt' rename='Do not fucking read this.txt' />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

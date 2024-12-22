@@ -46,11 +46,7 @@ class LoadingScreenState extends MusicBeatState
   private var realPercent:Float = 0;
   private var smoothenedPercent:Float = 0;
 
-  private var gotSportsEvent:Bool = false;
-
   private var finishedSportVid:Bool = true;
-
-  private var sportVid:VideoCutscene;
 
   override function create()
   {
@@ -67,10 +63,6 @@ class LoadingScreenState extends MusicBeatState
     DiscordClient.changePresence("Loading!", null, null, '-menus');
     #end
 
-    #if !SHOWCASEVIDEO
-    gotSportsEvent = RandomUtil.randomSecrets.bool(#if FORCESPORTSEVENT 100 #else 0.1 #end);
-    #end
-
     loadedBar = new FlxBar(74, 199, FlxBarFillDirection.TOP_TO_BOTTOM, 370, 247, this, "loaded", 0, 2, false);
     if (ClientPrefs.smootherBars)
     {
@@ -81,25 +73,9 @@ class LoadingScreenState extends MusicBeatState
     add(loadedBar);
 
     var bg:PixelPerfectSprite = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image("loading/loadBg"));
-    if (gotSportsEvent)
-    {
-      loadedBar.visible = false;
-      bg.loadGraphic(Paths.image("loading/sport"));
-    }
     bg.scale.set(2, 2);
     bg.updateHitbox();
     add(bg);
-
-    if (gotSportsEvent)
-    {
-      finishedSportVid = false;
-      sportVid = new VideoCutscene(11 * 2, 99 * 2);
-      add(sportVid);
-      sportVid.play(Paths.video('sports_countdown'), function setThingy()
-      {
-        finishedSportVid = true;
-      }, 275 * 2, 156 * 2);
-    }
 
     var marksSuffix:String = "";
 
@@ -176,11 +152,6 @@ class LoadingScreenState extends MusicBeatState
       FlxTransitionableState.skipNextTransIn = true;
       FlxTransitionableState.skipNextTransOut = true;
       MusicBeatState.switchState(new MainMenuState());
-    }
-
-    if (sportVid != null && !finishedSportVid)
-    {
-      finishedSportVid = (sportVid.vid == null);
     }
 
     holdingEscText.alpha = FlxMath.bound(escHoldTimer * 2, 0, 1);

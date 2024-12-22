@@ -38,21 +38,6 @@ class ClientPrefs
   public static var pixelPerfection = true;
   public static var multithreading = true;
 
-  public static var boiners:Int = 0;
-
-  public static var unlockedQuanta:Bool = false;
-  public static var unlockedAbstraction:Bool = false;
-  public static var unlockedBoozeLoze:Bool = false;
-
-  public static var unlockedGfMixes:Bool = false;
-  public static var unlockedPearMixes:Bool = false;
-  public static var unlockedMarkMixes:Bool = false;
-  public static var unlockedKarmMixes:Bool = false;
-  public static var unlockedYuuMixes:Bool = false;
-  public static var unlockedEviMixes:Bool = false;
-  public static var unlockedArgulowMixes:Bool = false;
-  public static var unlockedBaldiMixes:Bool = false;
-
   public static var gameplaySettings:Map<String, Dynamic> = [
     'scrollspeed' => 1.0,
     'scrolltype' => 'multiplicative',
@@ -97,8 +82,6 @@ class ClientPrefs
 
   public static var language:Languages = ENGLISH;
 
-  public static var lastEggshellsEnding:String = '';
-
   public static function loadDefaultKeys()
   {
     defaultKeys = keyBinds.copy();
@@ -141,22 +124,7 @@ class ClientPrefs
     FlxG.save.data.smootherBars = smootherBars;
     FlxG.save.data.pixelPerfection = pixelPerfection;
     FlxG.save.data.multithreading = multithreading;
-    FlxG.save.data.boiners = boiners;
-    FlxG.save.data.lastEggshellsEnding = lastEggshellsEnding;
     FlxG.save.data.language = language;
-
-    FlxG.save.data.unlockedQuanta = unlockedQuanta;
-    FlxG.save.data.unlockedBoozeLoze = unlockedBoozeLoze;
-    FlxG.save.data.unlockedAbstraction = unlockedAbstraction;
-
-    FlxG.save.data.unlockedGfMixes = unlockedGfMixes;
-    FlxG.save.data.unlockedPearMixes = unlockedPearMixes;
-    FlxG.save.data.unlockedMarkMixes = unlockedMarkMixes;
-    FlxG.save.data.unlockedKarmMixes = unlockedKarmMixes;
-    FlxG.save.data.unlockedYuuMixes = unlockedYuuMixes;
-    FlxG.save.data.unlockedEviMixes = unlockedEviMixes;
-    FlxG.save.data.unlockedArgulowMixes = unlockedArgulowMixes;
-    FlxG.save.data.unlockedBaldiMixes = unlockedBaldiMixes;
 
     FlxG.save.flush();
 
@@ -329,11 +297,6 @@ class ClientPrefs
       hitsoundVolume = FlxG.save.data.hitsoundVolume;
     }
 
-    if (FlxG.save.data.boiners != null)
-    {
-      boiners = FlxG.save.data.boiners;
-    }
-
     if (FlxG.save.data.gameplaySettings != null)
     {
       var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
@@ -372,66 +335,6 @@ class ClientPrefs
     if (FlxG.save.data.multithreading != null)
     {
       multithreading = FlxG.save.data.multithreading;
-    }
-
-    if (FlxG.save.data.lastEggshellsEnding != null)
-    {
-      lastEggshellsEnding = FlxG.save.data.lastEggshellsEnding;
-    }
-
-    if (FlxG.save.data.unlockedQuanta != null)
-    {
-      unlockedQuanta = FlxG.save.data.unlockedQuanta;
-    }
-
-    if (FlxG.save.data.unlockedBoozeLoze != null)
-    {
-      unlockedBoozeLoze = FlxG.save.data.unlockedBoozeLoze;
-    }
-
-    if (FlxG.save.data.unlockedAbstraction != null)
-    {
-      unlockedAbstraction = FlxG.save.data.unlockedAbstraction;
-    }
-
-    if (FlxG.save.data.unlockedGfMixes != null)
-    {
-      unlockedGfMixes = FlxG.save.data.unlockedGfMixes;
-    }
-
-    if (FlxG.save.data.unlockedPearMixes != null)
-    {
-      unlockedPearMixes = FlxG.save.data.unlockedPearMixes;
-    }
-
-    if (FlxG.save.data.unlockedMarkMixes != null)
-    {
-      unlockedMarkMixes = FlxG.save.data.unlockedMarkMixes;
-    }
-
-    if (FlxG.save.data.unlockedKarmMixes != null)
-    {
-      unlockedKarmMixes = FlxG.save.data.unlockedKarmMixes;
-    }
-
-    if (FlxG.save.data.unlockedYuuMixes != null)
-    {
-      unlockedYuuMixes = FlxG.save.data.unlockedYuuMixes;
-    }
-
-    if (FlxG.save.data.unlockedEviMixes != null)
-    {
-      unlockedEviMixes = FlxG.save.data.unlockedEviMixes;
-    }
-
-    if (FlxG.save.data.unlockedArgulowMixes != null)
-    {
-      unlockedArgulowMixes = FlxG.save.data.unlockedArgulowMixes;
-    }
-
-    if (FlxG.save.data.unlockedBaldiMixes != null)
-    {
-      unlockedBaldiMixes = FlxG.save.data.unlockedBaldiMixes;
     }
 
     var save:FlxSave = new FlxSave();

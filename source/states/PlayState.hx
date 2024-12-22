@@ -3612,16 +3612,7 @@ class PlayState extends MusicBeatState
         FlxG.sound.music.stop();
       }
 
-      if (songObj.songNameForDisplay.toLowerCase() == 'eggshells')
-      {
-        // uhhh change when dialogue system for eggshells happens
-        MusicBeatState.switchState(new MainMenuState());
-      }
-      else
-      {
-        MusicBeatState.switchState(new ResultsState(songScore, Highscore.getScore(SONG.song), synergys, goods, eghs, bleghs, cpuControlled,
-          Highscore.floorDecimal(ratingPercent * 100, 2), songMisses));
-      }
+      MusicBeatState.switchState(new MainMenuState());
 
       transitioning = true;
     }

@@ -560,18 +560,7 @@ class FreeplayState extends MusicBeatState
       }
     }
 
-    if (songs[curSelected].songName.toLowerCase() == 'eggshells')
-    {
-      if (Paths.image('song_covers/' + songs[curSelected].songName.toLowerCase() + ClientPrefs.lastEggshellsEnding, null, true) != null)
-      {
-        songCover.loadGraphic(Paths.image('song_covers/' + songs[curSelected].songName.toLowerCase() + ClientPrefs.lastEggshellsEnding));
-      }
-      else
-      {
-        songCover.loadGraphic(Paths.image('song_covers/placeholder'));
-      }
-    }
-    else if (Paths.image('song_covers/' + songs[curSelected].songName.toLowerCase(), null, true) != null)
+    if (Paths.image('song_covers/' + songs[curSelected].songName.toLowerCase(), null, true) != null)
     {
       songCover.loadGraphic(Paths.image('song_covers/' + songs[curSelected].songName.toLowerCase()));
     }
@@ -604,94 +593,6 @@ class FreeplayState extends MusicBeatState
      */
   public function getShouldBeRemovedFromList(name:String):Bool
   {
-    if (!ClientPrefs.unlockedQuanta)
-    {
-      if (name.toLowerCase().startsWith('quanta'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedAbstraction)
-    {
-      if (name.toLowerCase().startsWith('abstraction'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedBoozeLoze)
-    {
-      if (name.toLowerCase().startsWith('booze-loze'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedGfMixes)
-    {
-      if (name.toLowerCase().endsWith('-gf'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedPearMixes)
-    {
-      if (name.toLowerCase().endsWith('-pear'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedMarkMixes)
-    {
-      if (name.toLowerCase().endsWith('-mark'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedKarmMixes)
-    {
-      if (name.toLowerCase().endsWith('-karm'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedYuuMixes)
-    {
-      if (name.toLowerCase().endsWith('-yuu'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedEviMixes)
-    {
-      if (name.toLowerCase().endsWith('-evi'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedArgulowMixes)
-    {
-      if (name.toLowerCase().endsWith('-argulow'))
-      {
-        return true;
-      }
-    }
-
-    if (!ClientPrefs.unlockedBaldiMixes)
-    {
-      if (name.toLowerCase().endsWith('-baldi'))
-      {
-        return true;
-      }
-    }
-
     return false;
   }
 }

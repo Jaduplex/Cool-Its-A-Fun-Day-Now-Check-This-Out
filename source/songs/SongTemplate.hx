@@ -16,7 +16,7 @@ class SongTemplate extends SongClass
     this.songDescription = "Placeholder";
     this.ratingsType = "";
     this.skipCountdown = false;
-    this.preloadCharacters = ["bf-mark", "gf", "stop-loading"];
+    this.preloadCharacters = ["bf", "gf", "stop-loading"];
     this.introCardBeat = 0;
   }
 
