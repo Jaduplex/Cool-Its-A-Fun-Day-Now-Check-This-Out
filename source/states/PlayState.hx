@@ -550,11 +550,6 @@ class PlayState extends MusicBeatState
 
     makeStage(curStage);
 
-    if (curStage == 'dsides')
-    {
-      gfGroup.setPosition(starting.x + 660, starting.y + 40);
-    }
-
     add(gfGroup);
     add(dadGroup);
     add(boyfriendGroup);
@@ -918,491 +913,8 @@ class PlayState extends MusicBeatState
 
     switch (curStage)
     {
-      case 'fundamentals':
-        if (!ClientPrefs.lowQuality)
-        {
-          skyboxThingy = new PixelPerfectSprite().loadGraphic(Paths.image('destitution/skyboxThing'));
-          skyboxThingy.scale.set(2, 2);
-          skyboxThingy.updateHitbox();
-          skyboxThingy.antialiasing = false;
-          skyboxThingy.screenCenter();
-          skyboxThingy.scrollFactor.set();
-          add(skyboxThingy);
-        }
+      default:
 
-        starting = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('fundamentals/bg'));
-        starting.antialiasing = false;
-        starting.scale.set(2, 2);
-        starting.updateHitbox();
-        add(starting);
-      case 'mark':
-        if (ClientPrefs.shaders)
-        {
-          chromAbb = new Abberation(0);
-        }
-
-        if (!ClientPrefs.lowQuality)
-        {
-          skyboxThingy = new PixelPerfectSprite().loadGraphic(Paths.image('destitution/skyboxThing'));
-          skyboxThingy.scale.set(2, 2);
-          skyboxThingy.updateHitbox();
-          skyboxThingy.antialiasing = false;
-          skyboxThingy.screenCenter();
-          skyboxThingy.scrollFactor.set();
-          add(skyboxThingy);
-        }
-
-        angry = new PixelPerfectSprite(-680, -320).loadGraphic(Paths.image('destitution/angry'));
-        angry.scale.set(2, 2);
-        angry.updateHitbox();
-        angry.antialiasing = false;
-        add(angry);
-
-        angryDadCover = new PixelPerfectSprite(600, -320).loadGraphic(Paths.image('destitution/angry_dadcover'));
-        angryDadCover.scale.set(2, 2);
-        angryDadCover.updateHitbox();
-        angryDadCover.antialiasing = false;
-        angryDadCover.visible = false;
-
-        zamboni = new PixelPerfectSprite(-680, -320).loadGraphic(Paths.image('destitution/zamboni'));
-        zamboni.scale.set(2, 2);
-        zamboni.updateHitbox();
-        zamboni.antialiasing = false;
-        add(zamboni);
-
-        zamboniChaseBg = new PixelPerfectBackdrop(Paths.image('destitution/zamChaseBg'), X);
-        zamboniChaseBg.scale.set(4, 4);
-        zamboniChaseBg.updateHitbox();
-        zamboniChaseBg.screenCenter();
-        zamboniChaseBg.scrollFactor.set();
-        zamboniChaseBg.antialiasing = false;
-        add(zamboniChaseBg);
-        zamboniChaseBg.visible = false;
-
-        cryptehB = new PixelPerfectSprite(-680, -320).loadGraphic(Paths.image('destitution/cryptehB'));
-        cryptehB.scale.set(2, 2);
-        cryptehB.updateHitbox();
-        cryptehB.antialiasing = false;
-        add(cryptehB);
-
-        office = new PixelPerfectSprite(-680, -320);
-        office.frames = Paths.getSparrowAtlas('destitution/bg_rulez_crypteh');
-        office.animation.addByPrefix("idle", "ROOLZ ARE FOUR TOOLZ", 24, false);
-        office.animation.play("idle", true);
-        office.animation.pause();
-        office.scale.set(2, 2);
-        office.updateHitbox();
-        office.antialiasing = false;
-        add(office);
-
-        annoyed = new PixelPerfectSprite(-680, -320);
-        annoyed.frames = Paths.getSparrowAtlas('destitution/bg_annoyed');
-        annoyed.animation.addByPrefix("idle", "whale world to somewhat peterbed man", 24, false);
-        annoyed.animation.play("idle", true);
-        annoyed.animation.pause();
-        annoyed.scale.set(2, 2);
-        annoyed.updateHitbox();
-        annoyed.antialiasing = false;
-        add(annoyed);
-
-        liek = new PixelPerfectSprite(-680, -320);
-        liek.frames = Paths.getSparrowAtlas('destitution/bg_item_whale');
-        liek.animation.addByPrefix("idle", "ITEM MAN TO THE WHALES OF THE WORLD", 24, false);
-        liek.animation.play("idle", true);
-        liek.animation.pause();
-        liek.scale.set(2, 2);
-        liek.updateHitbox();
-        liek.antialiasing = false;
-        add(liek);
-
-        space = new PixelPerfectSprite(-680, -320);
-        space.loadGraphic(Paths.image("destitution/space"));
-        space.antialiasing = false;
-        space.scale.set(8, 8);
-        space.updateHitbox();
-        space.screenCenter();
-        space.scrollFactor.set(0.5, 0.5);
-        space.visible = false;
-        add(space);
-
-        if (ClientPrefs.shaders)
-        {
-          spaceWiggle = new WiggleEffect(1, 7, 0.2, WiggleEffectType.DREAMY, true);
-          space.shader = spaceWiggle;
-        }
-
-        if (!ClientPrefs.lowQuality)
-        {
-          spaceItems = new FlxTypedGroup<PixelPerfectSprite>();
-          for (i in 0...7)
-          {
-            var fucksprit:PixelPerfectSprite = new PixelPerfectSprite(RandomUtil.randomLogic.float(-32, 1248), RandomUtil.randomLogic.float(-32, 688));
-            fucksprit.loadGraphic(Paths.image("destitution/itemShit/" + Std.string(RandomUtil.randomVisuals.int(0, 10))));
-            fucksprit.antialiasing = false;
-            fucksprit.ID = i;
-            fucksprit.scale.set(2, 2);
-            fucksprit.updateHitbox();
-            fucksprit.scrollFactor.set(RandomUtil.randomLogic.float(0.05, 0.2), RandomUtil.randomLogic.float(0.05, 0.2));
-            spaceItems.add(fucksprit);
-          }
-          add(spaceItems);
-          spaceItems.visible = false;
-        }
-
-        blackVoid = new PixelPerfectSprite().makeGraphic(1, 1, FlxColor.BLACK);
-        blackVoid.scale.set(2560, 2560);
-        blackVoid.updateHitbox();
-        blackVoid.screenCenter();
-        blackVoid.scrollFactor.set();
-        add(blackVoid);
-        blackVoid.visible = false;
-
-        lurkingTransition = new PixelPerfectSprite(-680, -320);
-        lurkingTransition.frames = Paths.getSparrowAtlas('destitution/ploinky_to_lurking');
-        lurkingTransition.animation.addByPrefix('idle', 'bg', 24, false);
-        lurkingTransition.animation.play('idle', true);
-        lurkingTransition.animation.pause();
-        lurkingTransition.antialiasing = false;
-        lurkingTransition.scale.set(2, 2);
-        lurkingTransition.updateHitbox();
-        add(lurkingTransition);
-
-        ploinky = new PixelPerfectSprite(-680, -320).loadGraphic(Paths.image('destitution/ploinky'));
-        ploinky.antialiasing = false;
-        ploinky.scale.set(2, 2);
-        ploinky.updateHitbox();
-        add(ploinky);
-
-        starting = new PixelPerfectSprite(-680, -320).loadGraphic(Paths.image('destitution/start'));
-        starting.antialiasing = false;
-        starting.scale.set(2, 2);
-        starting.updateHitbox();
-        add(starting);
-
-        ploinkyTransition = new PixelPerfectSprite();
-        ploinkyTransition.frames = Paths.getSparrowAtlas('destitution/mark_ploinky_transition');
-        ploinkyTransition.animation.addByPrefix('1', '1', 24, false);
-        ploinkyTransition.animation.addByPrefix('2', '2', 24, false);
-        ploinkyTransition.animation.addByPrefix('3', '3', 24, false);
-        ploinkyTransition.animation.addByPrefix('4', '4', 24, false);
-        ploinkyTransition.animation.play('1', true);
-        ploinkyTransition.camera = camHUD;
-        add(ploinkyTransition);
-        ploinkyTransition.visible = false;
-
-        rulezGuySlideScaleWorldFunnyClips = new PixelPerfectSprite(0, 0);
-        rulezGuySlideScaleWorldFunnyClips.frames = Paths.getSparrowAtlas('destitution/rulez_guy_screen_transition');
-        rulezGuySlideScaleWorldFunnyClips.animation.addByPrefix("intro", "anim part 1", 24, false);
-        rulezGuySlideScaleWorldFunnyClips.animation.addByPrefix("zoom", "anim part 2", 24, false);
-        rulezGuySlideScaleWorldFunnyClips.animation.play("intro", true);
-        rulezGuySlideScaleWorldFunnyClips.animation.pause();
-        rulezGuySlideScaleWorldFunnyClips.scale.set(2, 2);
-        rulezGuySlideScaleWorldFunnyClips.updateHitbox();
-        rulezGuySlideScaleWorldFunnyClips.setPosition(0, 0);
-        rulezGuySlideScaleWorldFunnyClips.antialiasing = false;
-        rulezGuySlideScaleWorldFunnyClips.cameras = [camHUD];
-        add(rulezGuySlideScaleWorldFunnyClips);
-
-        zamMarkCamFlipShit = new PixelPerfectSprite(0, 0);
-        zamMarkCamFlipShit.frames = Paths.getSparrowAtlas('destitution/cam_flip_lol');
-        zamMarkCamFlipShit.animation.addByPrefix("idle", "idle", 24, false);
-        zamMarkCamFlipShit.animation.play("idle", true);
-        zamMarkCamFlipShit.animation.pause();
-        zamMarkCamFlipShit.antialiasing = false;
-        zamMarkCamFlipShit.cameras = [camHUD];
-        add(zamMarkCamFlipShit);
-        zamMarkCamFlipShit.visible = false;
-
-        if (!ClientPrefs.lowQuality)
-        {
-          bgPlayer = new Character(starting.x + 1048, starting.y + 576, "bg-player", false, false);
-          bgPlayer.canDance = false;
-          bgPlayerWalkTarget = bgPlayer.x;
-          bgPlayer.x -= 1400;
-          bgPlayer.playAnim("walk", true);
-          add(bgPlayer);
-        }
-
-        cuttingSceneThing = new PixelPerfectSprite();
-        cuttingSceneThing.frames = Paths.getSparrowAtlas("ui/cutting_scene");
-        cuttingSceneThing.animation.addByPrefix("idle", "idle", 24, true);
-        cuttingSceneThing.animation.play("idle", true);
-        cuttingSceneThing.cameras = [camHUD];
-        cuttingSceneThing.screenCenter();
-        add(cuttingSceneThing);
-        cuttingSceneThing.visible = false;
-
-        precacheList.set('destitution/start', 'image');
-        precacheList.set('destitution/mark_ploinky_transition', 'image');
-        precacheList.set('destitution/ploinky', 'image');
-        precacheList.set('destitution/ploinky_to_lurking', 'image');
-        precacheList.set('destitution/bg_item_whale', 'image');
-        precacheList.set('destitution/space', 'image');
-        precacheList.set('destitution/itemShit/0', 'image');
-        precacheList.set('destitution/itemShit/1', 'image');
-        precacheList.set('destitution/itemShit/2', 'image');
-        precacheList.set('destitution/itemShit/3', 'image');
-        precacheList.set('destitution/itemShit/4', 'image');
-        precacheList.set('destitution/itemShit/5', 'image');
-        precacheList.set('destitution/itemShit/6', 'image');
-        precacheList.set('destitution/itemShit/7', 'image');
-        precacheList.set('destitution/itemShit/8', 'image');
-        precacheList.set('destitution/itemShit/9', 'image');
-        precacheList.set('destitution/itemShit/10', 'image');
-        precacheList.set('ui/cutting_scene', 'image');
-        precacheList.set('ui/info/item', 'image');
-        precacheList.set('destitution/bg_annoyed', 'image');
-        precacheList.set('destitution/rulez_guy_screen_transition', 'image');
-        precacheList.set('destitution/bg_rulez_crypteh', 'image');
-        precacheList.set('destitution/cryptehB', 'image');
-        precacheList.set('destitution/zamboni', 'image');
-        precacheList.set('destitution/zamChaseBg', 'image');
-        precacheList.set('destitution/cam_flip_lol', 'image');
-        precacheList.set('destitution/angry', 'image');
-        precacheList.set('destitution/angry_dadcover', 'image');
-      case 'superseded':
-        tweeningCam = true;
-        camHUD.zoom = 15;
-
-        var computerMonitors:PixelPerfectSprite = new PixelPerfectSprite().loadGraphic(Paths.image('superseded/monitors'));
-        computerMonitors.antialiasing = false;
-        computerMonitors.scale.set(2, 2);
-        computerMonitors.updateHitbox();
-        computerMonitors.screenCenter();
-        computerMonitors.scrollFactor.set();
-        add(computerMonitors);
-
-        starting = new PixelPerfectSprite(-574, 96).loadGraphic(Paths.image('superseded/bg'));
-        starting.antialiasing = false;
-        add(starting);
-
-        theSmog = new PixelPerfectSprite().makeGraphic(1, 1, FlxColor.BLACK);
-        theSmog.scale.set(2560, 2560);
-        theSmog.updateHitbox();
-        theSmog.screenCenter();
-        theSmog.scrollFactor.set();
-        theSmog.alpha = 0;
-
-        supersededIntro = new PixelPerfectSprite(0, 0);
-        supersededIntro.frames = Paths.getSparrowAtlas("superseded/superseded_time");
-        supersededIntro.animation.addByPrefix("idle", "idle", 24, true);
-        supersededIntro.animation.addByPrefix("open", "open", 24, false);
-        supersededIntro.antialiasing = false;
-        supersededIntro.animation.play("idle", true);
-        supersededIntro.scrollFactor.set();
-
-        if (ClientPrefs.shaders)
-        {
-          spaceWiggle = new WiggleEffect(0.15, 4, 0.15, WiggleEffectType.DREAMY, true);
-        }
-
-        precacheList.set('superseded/bg_puppet_mark', 'image');
-        precacheList.set('superseded/bg_puppet_ploinky', 'image');
-        precacheList.set('superseded/bg_puppet_ili', 'image');
-        precacheList.set('superseded/bg_puppet_whale', 'image');
-        precacheList.set('superseded/bg_puppet_rulez', 'image');
-        precacheList.set('superseded/bg_puppet_crypteh', 'image');
-        precacheList.set('superseded/bg_puppet_zam', 'image');
-      case 'dsides':
-        aaColorChange.brightness = -100;
-        aaColorChange.contrast = 35;
-        aaColorChange.hue = 0;
-        aaColorChange.saturation = -90;
-
-        var pureWhiteAbyss:FlxSprite = new FlxSprite().makeGraphic(1, 1, FlxColor.WHITE);
-        pureWhiteAbyss.scale.set(2560, 2560);
-        pureWhiteAbyss.updateHitbox();
-        pureWhiteAbyss.screenCenter();
-        pureWhiteAbyss.scrollFactor.set();
-        add(pureWhiteAbyss);
-
-        if (!ClientPrefs.lowQuality)
-        {
-          wave = new WaveformSprite(WaveformDataParser.interpretFlxSound(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song))),
-            WaveformOrientation.HORIZONTAL, FlxColor.fromRGB(195, 207, 209), Conductor.crochet / 500);
-          wave.width = FlxG.width * 1.1;
-          wave.height = FlxG.height / 2;
-          wave.amplitude = 4;
-          wave.screenCenter();
-          add(wave);
-          wave.scrollFactor.set();
-        }
-
-        sky = new PixelPerfectSprite().loadGraphic(Paths.image('dsides/sky'));
-        sky.scale.set(2, 2);
-        sky.updateHitbox();
-        sky.antialiasing = false;
-        add(sky);
-        sky.screenCenter();
-        sky.scrollFactor.set();
-
-        backing = new PixelPerfectSprite().loadGraphic(Paths.image('dsides/backing'));
-        backing.scale.set(2, 2);
-        backing.updateHitbox();
-        backing.antialiasing = false;
-        add(backing);
-        backing.screenCenter();
-        backing.scrollFactor.set(0.5, 0.5);
-
-        if (!ClientPrefs.lowQuality)
-        {
-          cloudsGroup = new FlxTypedGroup<PixelPerfectSprite>();
-
-          for (i in 0...15)
-          {
-            // make a cloud, make the i cloud!
-            var thisCloud:PixelPerfectSprite = new PixelPerfectSprite(RandomUtil.randomLogic.float(-256, 872),
-              RandomUtil.randomLogic.float(-16, 360)).loadGraphic(Paths.image('dsides/clouds/' + RandomUtil.randomVisuals.int(0, 7)));
-            thisCloud.x += (32 * i);
-            thisCloud.antialiasing = false;
-            thisCloud.scale.set(1 + RandomUtil.randomLogic.float(-0.25, 0.25), 1 + RandomUtil.randomLogic.float(-0.25, 0.25));
-            thisCloud.updateHitbox();
-            thisCloud.scrollFactor.set(0.6, 0.6);
-            thisCloud.active = true;
-            thisCloud.velocity.x = RandomUtil.randomLogic.float(25, 40);
-            thisCloud.alpha = RandomUtil.randomLogic.float(0.6, 0.8);
-            cloudsGroup.add(thisCloud);
-          }
-
-          add(cloudsGroup);
-
-          theIncredibleTornado = new PixelPerfectSprite(-1512, 164).loadGraphic(Paths.image('dsides/tornado'));
-          theIncredibleTornado.scale.set(2, 2);
-          theIncredibleTornado.updateHitbox();
-          theIncredibleTornado.antialiasing = false;
-          theIncredibleTornado.scrollFactor.set(0.75, 0.75);
-          add(theIncredibleTornado);
-        }
-
-        starting = new PixelPerfectSprite().loadGraphic(Paths.image('dsides/front'));
-        starting.scale.set(2, 2);
-        starting.updateHitbox();
-        starting.antialiasing = false;
-        starting.screenCenter();
-
-        if (!ClientPrefs.lowQuality)
-        {
-          karmScaredy = new PixelPerfectSprite(starting.x + 48, starting.y + 632);
-          karmScaredy.frames = Paths.getSparrowAtlas("dsides/karm_scaredy");
-          karmScaredy.animation.addByPrefix("idle", "idle", 24, false);
-          karmScaredy.animation.play("idle", true);
-          karmScaredy.scrollFactor.set(0.9, 0.9);
-          karmScaredy.shader = aaColorChange;
-          add(karmScaredy);
-          karmScaredy.visible = false;
-        }
-
-        add(starting);
-
-        if (!ClientPrefs.lowQuality)
-        {
-          chefTable = new PixelPerfectSprite().loadGraphic(Paths.image('dsides/chefTable'));
-          chefTable.scale.set(4, 4);
-          chefTable.updateHitbox();
-          chefTable.antialiasing = false;
-          chefTable.screenCenter();
-          chefTable.scrollFactor.set(1.6, 0.55);
-          chefTable.y -= 4000;
-
-          chefBanner = new PixelPerfectSprite().loadGraphic(Paths.image('dsides/chefBanner'));
-          chefBanner.scale.set(4, 4);
-          chefBanner.updateHitbox();
-          chefBanner.antialiasing = false;
-          chefBanner.screenCenter();
-          chefBanner.scrollFactor.set(1.25, 0.75);
-          chefBanner.y -= 4000;
-        }
-
-        lightningStrikes = new PixelPerfectSprite().makeGraphic(1, 1, FlxColor.fromRGB(255, 241, 185));
-        lightningStrikes.scale.set(5000, 5000);
-        lightningStrikes.updateHitbox();
-
-        if (ClientPrefs.shaders)
-        {
-          lightningStrikes.blend = BlendMode.ADD;
-        }
-
-        lightningStrikes.screenCenter();
-        lightningStrikes.scrollFactor.set();
-        lightningStrikes.alpha = 0;
-
-        funnyBgColors = new PixelPerfectSprite().makeGraphic(1, 1, FlxColor.WHITE);
-        funnyBgColors.scale.set(FlxG.width * 3, FlxG.width * 3);
-        funnyBgColors.updateHitbox();
-        funnyBgColors.screenCenter();
-        funnyBgColors.scrollFactor.set();
-        add(funnyBgColors);
-        funnyBgColors.alpha = 0;
-        funnyBgColors.color = FlxColor.BLACK;
-
-        if (ClientPrefs.shaders)
-        {
-          funnyBgColors.blend = BlendMode.MULTIPLY;
-        }
-
-        train = new PixelPerfectSprite().loadGraphic(Paths.image("dsides/train funny"));
-        train.scale.set(10, 10);
-        train.updateHitbox();
-        train.antialiasing = false;
-        train.screenCenter();
-        add(train);
-        train.visible = false;
-
-        castanetTalking = new PixelPerfectSprite();
-        castanetTalking.frames = Paths.getSparrowAtlas('dsides/castanet_talking');
-        castanetTalking.animation.addByPrefix('idle', 'idle', 24, true);
-        castanetTalking.animation.play('idle', true);
-        castanetTalking.scale.set(2, 2);
-        castanetTalking.updateHitbox();
-        castanetTalking.antialiasing = false;
-        castanetTalking.cameras = [camOther];
-        castanetTalking.screenCenter();
-        add(castanetTalking);
-        castanetTalking.visible = false;
-
-        precacheList.set('dsides/karm_scaredy', 'image');
-        precacheList.set('dsides/train funny', 'image');
-        precacheList.set('dsides/iliBacking', 'image');
-        precacheList.set('dsides/iliRoom', 'image');
-        precacheList.set('dsides/iliSky', 'image');
-        precacheList.set('dsides/chefBanner', 'image');
-        precacheList.set('dsides/chefTable', 'image');
-        precacheList.set('dsides/dougBacking', 'image');
-        precacheList.set('dsides/dougRoom', 'image');
-        precacheList.set('dsides/dougSky', 'image');
-        precacheList.set('dsides/skyworldSky', 'image');
-        precacheList.set('dsides/skyworldStage', 'image');
-        precacheList.set('dsides/castanet_talking', 'image');
-
-        precacheList.set('dsides/karmFlees', 'sound');
-        precacheList.set('dsides/storm0', 'sound');
-        precacheList.set('dsides/storm1', 'sound');
-        precacheList.set('dsides/storm2', 'sound');
-        precacheList.set('dsides/storm3', 'sound');
-      case 'eggshells':
-        cabinBg = new PixelPerfectSprite();
-        cabinBg.frames = Paths.getSparrowAtlas('eggshells/cabin');
-        cabinBg.animation.addByPrefix('idle', 'idle', 24, true);
-        cabinBg.animation.play('idle', true);
-        cabinBg.scale.set(2, 2);
-        cabinBg.updateHitbox();
-        cabinBg.screenCenter();
-        add(cabinBg);
-      case 'eggshells-bad':
-        cabinBg = new PixelPerfectSprite().loadGraphic(Paths.image('eggshells/bad_cabin'));
-        cabinBg.scale.set(2, 2);
-        cabinBg.updateHitbox();
-        cabinBg.screenCenter();
-        add(cabinBg);
-      case 'eggshells-good':
-        cabinBg = new PixelPerfectSprite();
-        cabinBg.frames = Paths.getSparrowAtlas('eggshells/cabin');
-        cabinBg.animation.addByPrefix('idle', 'idle', 24, true);
-        cabinBg.animation.play('idle', true);
-        cabinBg.scale.set(2, 2);
-        cabinBg.updateHitbox();
-        cabinBg.screenCenter();
-        add(cabinBg);
     }
 
     #if DEVELOPERBUILD
@@ -2550,17 +2062,6 @@ class PlayState extends MusicBeatState
     {
       wave.time = Conductor.songPosition / 1000;
       wave.update(elapsed);
-    }
-
-    if (curStage == 'dsides')
-    {
-      if (strikeyStrikes)
-      {
-        aaColorChange.brightness = FlxMath.lerp(aaColorChange.brightness, -100, CoolUtil.boundTo(elapsed * (6), 0, 1));
-        aaColorChange.contrast = FlxMath.lerp(aaColorChange.contrast, 35, CoolUtil.boundTo(elapsed * (6), 0, 1));
-        aaColorChange.hue = 0;
-        aaColorChange.saturation = FlxMath.lerp(aaColorChange.saturation, -90, CoolUtil.boundTo(elapsed * (6), 0, 1));
-      }
     }
 
     if (chromAbb != null)
@@ -4282,11 +3783,6 @@ class PlayState extends MusicBeatState
         FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
       }
 
-      if (note.itemNote)
-      {
-        doItemNoteShit();
-      }
-
       if (note.hitCausesMiss)
       {
         noteMiss(note);
@@ -4700,11 +4196,6 @@ class PlayState extends MusicBeatState
   {
     super.sectionHit();
 
-    if (curSection % 4 == 0)
-    {
-      clearItemNoteShit();
-    }
-
     if (SONG.notes[curSection] != null)
     {
       if (generatedMusic && !endingSong && !isCameraOnForcedPos)
@@ -4851,42 +4342,6 @@ class PlayState extends MusicBeatState
   }
 
   /**
-    add random item to hud overlay
-  **/
-  public function doItemNoteShit()
-  {
-    var thingToAdd:PixelPerfectSprite = new PixelPerfectSprite(RandomUtil.randomLogic.int(-32, 1312), RandomUtil.randomLogic.int(-32, 688));
-    thingToAdd.loadGraphic(Paths.image("destitution/itemShit/" + Std.string(RandomUtil.randomVisuals.int(0, 10))));
-    var theeeeeeeeeeeeeee:Int = RandomUtil.randomLogic.int(4, 8);
-    thingToAdd.scale.set(theeeeeeeeeeeeeee, theeeeeeeeeeeeeee);
-    thingToAdd.updateHitbox();
-    thingToAdd.angle = RandomUtil.randomLogic.float(-180, 180);
-    thingToAdd.antialiasing = false;
-    thingToAdd.alpha = 0;
-    itemNoteHudOverlays.add(thingToAdd);
-    FlxTween.tween(thingToAdd, {alpha: 1}, Conductor.crochet / 1000, {ease: EaseUtil.stepped(8)});
-  }
-
-  /**
-    remove items from hud overlay
-  **/
-  public function clearItemNoteShit()
-  {
-    if (itemNoteHudOverlays == null)
-    {
-      return;
-    }
-
-    for (these in itemNoteHudOverlays)
-    {
-      these.visible = false;
-      itemNoteHudOverlays.remove(these, true);
-      remove(these);
-      these.destroy();
-    }
-  }
-
-  /**
    * just to clean up create()
    */
   public function songDataShit(songName:String)
@@ -4904,34 +4359,10 @@ class PlayState extends MusicBeatState
     {
       switch (removeVariationSuffixes(songName.toLowerCase()))
       {
-        case 'fundamentals':
-          curStage = 'fundamentals';
-        case 'destitution':
-          curStage = 'mark';
-        case 'superseded':
-          curStage = 'superseded';
-        case 'quickshot':
-          curStage = 'quickshot';
-        case 'd-stitution':
-          curStage = 'dsides';
-        case 'eggshells':
-          curStage = 'eggshells';
-        case 'eggshells-bad':
-          curStage = 'eggshells-bad';
-        case 'eggshells-good':
-          curStage = 'eggshells-good';
-        case 'elsewhere':
-          curStage = 'elsewhere';
-        case 'collapse':
-          curStage = 'collapse';
-        case 'megamix':
-          curStage = 'megamix';
-        case 'quanta':
-          curStage = 'factory';
-        case 'abstraction':
-          curStage = 'tv';
+        case 'fnf-the-supervista':
+          curStage = 'supervista';
         default:
-          curStage = 'mark';
+          curStage = 'default';
       }
     }
 
@@ -4940,14 +4371,7 @@ class PlayState extends MusicBeatState
     GameOverSubstate.characterName = songObj.gameoverChar;
     GameOverSubstate.loopSoundName = 'gameover/loop' + songObj.gameoverMusicSuffix;
     GameOverSubstate.endSoundName = 'gameover/end' + songObj.gameoverMusicSuffix;
-    if (songObj.gameoverMusicSuffix == '_dsides')
-    {
-      GameOverSubstate.gameOverTempo = 95;
-    }
-    else
-    {
-      GameOverSubstate.gameOverTempo = 100;
-    }
+    GameOverSubstate.gameOverTempo = 100;
 
     skipCountdown = songObj.skipCountdown;
   }
@@ -5015,10 +4439,10 @@ class PlayState extends MusicBeatState
   {
     var songReal:String = song.toLowerCase();
 
-    for (vari in SongInit.genSongObj(song.toLowerCase()).songVariants.concat(['bf', 'pear', 'mark', 'gf', 'baldi', 'argulow', 'evi', 'karm', 'yuu']))
-    {
-      songReal = songReal.replace('-' + vari.toLowerCase(), '');
-    }
+    //for (vari in SongInit.genSongObj(song.toLowerCase()).songVariants.concat(['bf', 'pear', 'mark', 'gf', 'baldi', 'argulow', 'evi', 'karm', 'yuu']))
+    //{
+    //  songReal = songReal.replace('-' + vari.toLowerCase(), '');
+    //}
 
     return songReal.toLowerCase();
   }

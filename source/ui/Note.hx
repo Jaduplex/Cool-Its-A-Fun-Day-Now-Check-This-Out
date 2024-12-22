@@ -95,8 +95,6 @@ class Note extends PixelPerfectSprite
 
   public var hitsoundDisabled:Bool = false;
 
-  public var itemNote:Bool = false;
-
   public function set_multSpeed(value:Float):Float
   {
     resizeByRatio(value / multSpeed);
@@ -117,12 +115,6 @@ class Note extends PixelPerfectSprite
   {
     if (texture != value)
     {
-      switch (noteType.toLowerCase())
-      {
-        case 'item note' | 'rulez note' | 'honk note' | 'something something wah wah idk':
-          return texture;
-      }
-
       reloadNote('', value);
       texture = value;
     }
@@ -152,32 +144,6 @@ class Note extends PixelPerfectSprite
           noMissAnimation = true;
         case 'GF Sing':
           gfNote = true;
-        case 'Item Note':
-          angle = 0;
-          lowPriority = true;
-          ignoreNote = true;
-          itemNote = true;
-
-          colorSwap.hue = 0;
-          colorSwap.brightness = 0;
-          colorSwap.saturation = 0;
-
-          var noteNum:Int = RandomUtil.randomVisuals.int(0, 10);
-          animation.reset();
-          loadGraphic(Paths.image('destitution/itemShit/$noteNum'));
-          setGraphicSize(105, 105);
-          switch (noteData)
-          {
-            case 0:
-              angle = -90;
-            case 1:
-              angle = 180;
-            case 2:
-              angle = 0;
-            case 3:
-              angle = 90;
-          }
-          updateHitbox();
       }
 
       noteType = value;
@@ -223,7 +189,7 @@ class Note extends PixelPerfectSprite
 
       x += swagWidth * (noteData);
 
-      if (!isSustainNote && noteData > -1 && noteData < 4 && !itemNote)
+      if (!isSustainNote && noteData > -1 && noteData < 4)
       {
         var animToPlay:String = '';
         animToPlay = colArray[noteData % 4];
@@ -351,12 +317,6 @@ class Note extends PixelPerfectSprite
 
   public function loadNoteAnims()
   {
-    if (itemNote)
-    {
-      updateHitbox();
-      return;
-    }
-
     animation.addByPrefix(colArray[noteData] + 'Scroll', colArray[noteData] + '0', 24);
 
     if (isSustainNote)
