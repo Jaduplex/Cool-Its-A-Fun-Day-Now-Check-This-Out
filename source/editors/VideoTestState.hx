@@ -35,7 +35,7 @@ class VideoTestState extends MusicBeatState
     super.create();
 
     var videoz:VideoCutscene = new VideoCutscene(0, 0);
-    videoz.play(Paths.video('sports_countdown'), null, FlxG.height, FlxG.width);
+    videoz.play(Paths.video('vid1337'), null, FlxG.height, FlxG.width);
     add(videoz);
 
     #if DEVELOPERBUILD

@@ -281,43 +281,7 @@ class PlayState extends MusicBeatState
 
   public static var lastRating:PixelPerfectSprite;
 
-  public var cloudSpeedAdditive:Float = 0;
-
-  public var castanetTalking:PixelPerfectSprite;
-  public var ploinkyTransition:PixelPerfectSprite;
-  public var lurkingTransition:PixelPerfectSprite;
-  public var rulezGuySlideScaleWorldFunnyClips:PixelPerfectSprite;
-  public var YOUSTUPIDSONOFABITCH:PixelPerfectSprite;
-  public var zamMarkCamFlipShit:PixelPerfectSprite;
-  public var ref:PixelPerfectSprite;
-  public var chefBanner:PixelPerfectSprite;
-  public var chefTable:PixelPerfectSprite;
-  public var train:PixelPerfectSprite;
-  public var karmScaredy:PixelPerfectSprite;
-  public var cabinBg:PixelPerfectSprite;
-  public var supersededIntro:PixelPerfectSprite;
-  public var backing:PixelPerfectSprite;
-  public var sky:PixelPerfectSprite;
-  public var cloudsGroup:FlxTypedGroup<PixelPerfectSprite>;
-  public var theIncredibleTornado:PixelPerfectSprite;
-  public var lightningStrikes:PixelPerfectSprite;
-  public var skyboxThingy:PixelPerfectSprite;
-  public var angry:PixelPerfectSprite;
-  public var angryDadCover:PixelPerfectSprite;
-  public var zamboni:PixelPerfectSprite;
-  public var zamboniChaseBg:PixelPerfectBackdrop;
-  public var cryptehB:PixelPerfectSprite;
-  public var office:PixelPerfectSprite;
-  public var annoyed:PixelPerfectSprite;
-  public var liek:PixelPerfectSprite;
-  public var space:PixelPerfectSprite;
-  public var blackVoid:PixelPerfectSprite;
-  public var ploinky:PixelPerfectSprite;
   public var starting:PixelPerfectSprite;
-  public var cuttingSceneThing:PixelPerfectSprite;
-  public var supersededOverlay:PixelPerfectSprite;
-  public var theSmog:PixelPerfectSprite;
-  public var funnyBgColors:PixelPerfectSprite;
 
   public static var lastScore:Array<PixelPerfectSprite> = [];
 
@@ -408,6 +372,9 @@ class PlayState extends MusicBeatState
   public var detailsPausedText:String = "Paused";
 
   public var elapsedTotal:Float;
+
+  public var vistaWall:VideoCutscene;
+	public var twentyNineSky:FlxSprite;
 
   override public function create()
   {
@@ -577,42 +544,15 @@ class PlayState extends MusicBeatState
 
     dadGroup.add(dad);
 
-    if (angryDadCover != null)
-    {
-      add(angryDadCover);
-    }
-
     boyfriend = new Boyfriend(0, 0, SONG.player1);
 
     startCharacterPos(boyfriend);
 
     boyfriendGroup.add(boyfriend);
 
-    if (supersededIntro != null)
-    {
-      add(supersededIntro);
-    }
-
-    if (chefTable != null)
-    {
-      add(chefTable);
-      chefTable.visible = false;
-    }
-
-    if (chefBanner != null)
-    {
-      add(chefBanner);
-      chefBanner.visible = false;
-    }
-
     if (fgGf != null)
     {
       add(fgGf);
-    }
-
-    if (theSmog != null)
-    {
-      add(theSmog);
     }
 
     var camPos:FlxPoint = new FlxPoint(girlfriendCameraOffset[0], girlfriendCameraOffset[1]);
@@ -913,8 +853,24 @@ class PlayState extends MusicBeatState
 
     switch (curStage)
     {
-      default:
+      case 'supervista':
+        vistaWall = new VideoCutscene();
+        vistaWall.play(Paths.video('vid1337'), vistaWall.loop, 2560, 1440);
+        vistaWall.updateHitbox();
+        vistaWall.screenCenter();
+        vistaWall.scrollFactor.set(0.25, 0.25);
+        vistaWall.antialiasing = ClientPrefs.globalAntialiasing;
+        add(vistaWall);
 
+        twentyNineSky = new FlxSprite().loadGraphic(Paths.image('supervista/img29'));
+        twentyNineSky.scale.set(1.5, 1.5);
+        twentyNineSky.antialiasing = ClientPrefs.globalAntialiasing;
+        twentyNineSky.updateHitbox();
+        twentyNineSky.screenCenter();
+        twentyNineSky.scrollFactor.set(0, 0);
+        twentyNineSky.alpha = 0.85;
+        add(twentyNineSky);
+      default:
     }
 
     #if DEVELOPERBUILD
@@ -1671,43 +1627,6 @@ class PlayState extends MusicBeatState
     });
   }
 
-  public function lightningBg()
-  {
-    sky.shader = aaColorChange;
-    backing.shader = aaColorChange;
-    starting.shader = aaColorChange;
-    if (!ClientPrefs.lowQuality)
-    {
-      theIncredibleTornado.shader = aaColorChange;
-      for (cloud in cloudsGroup.members)
-      {
-        cloud.shader = aaColorChange;
-      }
-    }
-    dad.shader = aaColorChange;
-    boyfriend.shader = aaColorChange;
-    gf.shader = aaColorChange;
-  }
-
-  public function unLightningBg()
-  {
-    sky.shader = null;
-    backing.shader = null;
-    starting.shader = null;
-    if (!ClientPrefs.lowQuality)
-    {
-      theIncredibleTornado.shader = null;
-      for (cloud in cloudsGroup.members)
-      {
-        cloud.shader = null;
-      }
-    }
-    dad.shader = null;
-    boyfriend.shader = null;
-    gf.shader = null;
-    strikeyStrikes = false;
-  }
-
   public function eventPushed(event:EventNote)
   {
     switch (event.event)
@@ -2012,40 +1931,6 @@ class PlayState extends MusicBeatState
       ];
 
       camFollowPos.setPosition(targets[0], targets[1]);
-    }
-
-    if (ref != null)
-    {
-      if (FlxG.keys.justPressed.P)
-      {
-        ref.visible = !ref.visible;
-      }
-    }
-
-    if (cloudsGroup != null)
-    {
-      for (cloud in cloudsGroup.members)
-      {
-        cloud.angle += Math.cos(elapsedTotal) * 0.05;
-
-        if (cloud.x >= 1512)
-        {
-          cloud.angle = 0;
-          cloud.x -= 2048;
-          cloud.velocity.x = RandomUtil.randomLogic.float(25 + cloudSpeedAdditive, 40 + cloudSpeedAdditive);
-          cloud.alpha = RandomUtil.randomLogic.float(0.6, 0.8);
-        }
-      }
-    }
-
-    if (theIncredibleTornado != null)
-    {
-      theIncredibleTornado.angle += Math.cos(elapsedTotal) * 0.05;
-    }
-
-    if (zamboniChaseBg != null)
-    {
-      zamboniChaseBg.x -= 800 * elapsed;
     }
 
     if (spaceWiggle != null)
@@ -2885,7 +2770,7 @@ class PlayState extends MusicBeatState
 
     if (centerCamOnBg)
     {
-      camFollow.set(angry.getMidpoint().x, angry.getMidpoint().y);
+      camFollow.set(starting.getMidpoint().x, starting.getMidpoint().y);
       camZoomAdditive = 0;
       return;
     }
@@ -4073,31 +3958,9 @@ class PlayState extends MusicBeatState
       camHUD.zoom += 0.05;
     }
 
-    if (fuckMyLife)
-    {
-      if (karmScaredy != null && curBeat % 2 == 0)
-      {
-        karmScaredy.animation.play("idle", true);
-      }
-    }
-
     if (fgGf != null && curBeat % 2 == 0)
     {
       fgGf.dance();
-    }
-
-    if (curBeat % bgColorsCrazyBeats == 0 && funnyBgColorsPumpin)
-    {
-      FlxTween.completeTweensOf(funnyBgColors);
-
-      funnyBgColors.alpha = 0.1;
-
-      if (bgColorsRandom)
-      {
-        funnyBgColors.color = funnyColorsArray[RandomUtil.randomVisuals.int(0, funnyColorsArray.length - 1)];
-      }
-
-      FlxTween.tween(funnyBgColors, {alpha: 0.5}, Conductor.crochet / 750, {ease: EaseUtil.stepped(8)});
     }
 
     if (curBeat % 2 == 0)
@@ -4170,23 +4033,6 @@ class PlayState extends MusicBeatState
     if (curBeat % 2 == 0 && bgPlayer != null)
     {
       bgPlayer.dance();
-    }
-
-    if (curBeat % 8 == 0)
-    {
-      if (strikeyStrikes)
-      {
-        aaColorChange.brightness = -20;
-        aaColorChange.contrast = 10;
-        aaColorChange.hue = 0;
-        aaColorChange.saturation = -67;
-
-        lightningStrikes.alpha = 0.9;
-
-        FlxTween.tween(lightningStrikes, {alpha: 0}, Conductor.crochet / 250, {ease: EaseUtil.stepped(16)});
-
-        FlxG.sound.play(Paths.soundRandom('dsides/storm', 0, 3), 0.9, false);
-      }
     }
 
     lastBeatHit = curBeat;
@@ -4439,10 +4285,10 @@ class PlayState extends MusicBeatState
   {
     var songReal:String = song.toLowerCase();
 
-    //for (vari in SongInit.genSongObj(song.toLowerCase()).songVariants.concat(['bf', 'pear', 'mark', 'gf', 'baldi', 'argulow', 'evi', 'karm', 'yuu']))
-    //{
+    // for (vari in SongInit.genSongObj(song.toLowerCase()).songVariants.concat(['bf', 'pear', 'mark', 'gf', 'baldi', 'argulow', 'evi', 'karm', 'yuu']))
+    // {
     //  songReal = songReal.replace('-' + vari.toLowerCase(), '');
-    //}
+    // }
 
     return songReal.toLowerCase();
   }

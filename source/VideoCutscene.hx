@@ -120,6 +120,24 @@ class VideoCutscene extends FlxSpriteGroup
     #end
   }
 
+  /**
+   * same as restartVideo, but with no resume toggle, because im lazy as hell
+   */
+  public function loop():Void
+  {
+    #if hxCodec
+    if (vid != null)
+    {
+      // Seek to the start of the video.
+      vid.bitmap.time = 0;
+      // Resume the video if it was paused.
+      vid.resume();
+
+      onVideoRestarted.dispatch();
+    }
+    #end
+  }
+
   public function pauseVideo():Void
   {
     #if hxCodec
