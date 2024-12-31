@@ -97,7 +97,7 @@ class PlayState extends MusicBeatState
   public var songSpeedType:String = "multiplicative";
   public var songSpeedTween:FlxTween;
 
-  public var songFont:String = "BAUHS93.ttf";
+  public var songFont:String = "comic.ttf";
 
   public static var curStage:String = '';
 
@@ -374,7 +374,8 @@ class PlayState extends MusicBeatState
   public var elapsedTotal:Float;
 
   public var vistaWall:VideoCutscene;
-	public var twentyNineSky:FlxSprite;
+  public var twentyNineSky:FlxSprite;
+  public var supervistaFloor:FlxSprite;
 
   override public function create()
   {
@@ -713,7 +714,7 @@ class PlayState extends MusicBeatState
     var versionShit:FlxText = new FlxText(-4, FlxG.height - 24, FlxG.width,
       "(DEV BUILD!!! - " + CoolUtil.gitCommitBranch + " - " + CoolUtil.gitCommitHash + ")", 12);
     versionShit.scrollFactor.set();
-    versionShit.setFormat(Paths.font("BAUHS93.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    versionShit.setFormat(Paths.font(songFont), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     versionShit.cameras = [camHUD];
     versionShit.antialiasing = ClientPrefs.globalAntialiasing;
     add(versionShit);
@@ -854,7 +855,7 @@ class PlayState extends MusicBeatState
     switch (curStage)
     {
       case 'supervista':
-        vistaWall = new VideoCutscene();
+        vistaWall = new VideoCutscene(0, 0);
         vistaWall.play(Paths.video('vid1337'), vistaWall.loop, 2560, 1440);
         vistaWall.updateHitbox();
         vistaWall.screenCenter();
@@ -870,6 +871,12 @@ class PlayState extends MusicBeatState
         twentyNineSky.scrollFactor.set(0, 0);
         twentyNineSky.alpha = 0.85;
         add(twentyNineSky);
+
+        supervistaFloor = new FlxSprite(-1136, -42).loadGraphic(Paths.image('supervista/floor'));
+        supervistaFloor.scale.set(1.5, 1.5);
+        supervistaFloor.updateHitbox();
+        supervistaFloor.antialiasing = ClientPrefs.globalAntialiasing;
+        add(supervistaFloor);
       default:
     }
 
@@ -4284,11 +4291,6 @@ class PlayState extends MusicBeatState
   public static function removeVariationSuffixes(song:String):String
   {
     var songReal:String = song.toLowerCase();
-
-    // for (vari in SongInit.genSongObj(song.toLowerCase()).songVariants.concat(['bf', 'pear', 'mark', 'gf', 'baldi', 'argulow', 'evi', 'karm', 'yuu']))
-    // {
-    //  songReal = songReal.replace('-' + vari.toLowerCase(), '');
-    // }
 
     return songReal.toLowerCase();
   }

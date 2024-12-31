@@ -121,7 +121,7 @@ class CharacterEditorState extends MusicBeatState
     dumbTexts.cameras = [camHUD];
 
     textAnim = new FlxText(300, 16);
-    textAnim.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    textAnim.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     textAnim.borderSize = 1;
     textAnim.scrollFactor.set();
     textAnim.cameras = [camHUD];
@@ -193,7 +193,7 @@ class CharacterEditorState extends MusicBeatState
     var versionShit:FlxText = new FlxText(-4, FlxG.height - 24, FlxG.width,
       "(DEV BUILD!!! - " + CoolUtil.gitCommitBranch + " - " + CoolUtil.gitCommitHash + ")", 12);
     versionShit.scrollFactor.set();
-    versionShit.setFormat(Paths.font("BAUHS93.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     versionShit.cameras = [camHUD];
     add(versionShit);
     #end

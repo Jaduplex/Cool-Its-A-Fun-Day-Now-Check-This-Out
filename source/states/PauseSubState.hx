@@ -79,7 +79,7 @@ class PauseSubState extends MusicBeatSubstate
     var credit:FlxText = new FlxText(8, 0, 0, "", 32);
     credit.text = TextAndLanguage.getPhrase('pause_credits', 'Composer: {1}\nCharter: {2}', [PlayState.SONG.composer, PlayState.SONG.charter]);
     credit.scrollFactor.set();
-    credit.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    credit.setFormat(Paths.font("comic.ttf"), 32);
     credit.updateHitbox();
     credit.antialiasing = ClientPrefs.globalAntialiasing;
     credit.alpha = 0;
@@ -88,7 +88,7 @@ class PauseSubState extends MusicBeatSubstate
     var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
     levelInfo.text += PlayState.instance.songObj.songNameForDisplay;
     levelInfo.scrollFactor.set();
-    levelInfo.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    levelInfo.setFormat(Paths.font("comic.ttf"), 32);
     levelInfo.updateHitbox();
     levelInfo.antialiasing = ClientPrefs.globalAntialiasing;
     add(levelInfo);
@@ -96,7 +96,7 @@ class PauseSubState extends MusicBeatSubstate
     var blueballedTxt:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
     blueballedTxt.text = TextAndLanguage.getPhrase('pause_died', 'Died: {1}', [PlayState.deathCounter]);
     blueballedTxt.scrollFactor.set();
-    blueballedTxt.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    blueballedTxt.setFormat(Paths.font("comic.ttf"), 32);
     blueballedTxt.updateHitbox();
     blueballedTxt.antialiasing = ClientPrefs.globalAntialiasing;
     add(blueballedTxt);
@@ -104,7 +104,7 @@ class PauseSubState extends MusicBeatSubstate
     var sectionTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
     sectionTxt.text = "Section " + PlayState.sectionNum;
     sectionTxt.scrollFactor.set();
-    sectionTxt.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    sectionTxt.setFormat(Paths.font("comic.ttf"), 32);
     sectionTxt.updateHitbox();
     sectionTxt.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -115,7 +115,7 @@ class PauseSubState extends MusicBeatSubstate
 
     practiceText = new FlxText(20, 15 + 101, 0, TextAndLanguage.getPhrase('pause_practice', 'PRACTICE MODE'), 32);
     practiceText.scrollFactor.set();
-    practiceText.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    practiceText.setFormat(Paths.font("comic.ttf"), 32);
     practiceText.x = FlxG.width - (practiceText.width + 20);
     practiceText.updateHitbox();
     practiceText.visible = PlayState.instance.practiceMode;
@@ -125,7 +125,7 @@ class PauseSubState extends MusicBeatSubstate
     #if DEVELOPERBUILD
     var chartingText:FlxText = new FlxText(20, 15 + 165, 0, TextAndLanguage.getPhrase('pause_charting', 'CHARTING MODE'), 32);
     chartingText.scrollFactor.set();
-    chartingText.setFormat(Paths.font("BAUHS93.ttf"), 32);
+    chartingText.setFormat(Paths.font("comic.ttf"), 32);
     chartingText.x = FlxG.width - (chartingText.width + 20);
     chartingText.y = FlxG.height - (chartingText.height + 20);
     chartingText.updateHitbox();
@@ -148,7 +148,7 @@ class PauseSubState extends MusicBeatSubstate
     add(songCover);
 
     descText = new FlxText(872, songCover.y + songCover.height + 21, 400, PlayState.instance.songObj.songDescription, 30);
-    descText.setFormat(Paths.font("BAUHS93.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    descText.setFormat(Paths.font("comic.ttf"), 30, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     descText.borderSize = 1.5;
     descText.x = FlxG.width - 415;
     descText.y = songCover.y + songCover.height + 21;

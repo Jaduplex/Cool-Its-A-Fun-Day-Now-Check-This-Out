@@ -111,7 +111,7 @@ class LoadingScreenState extends MusicBeatState
     var versionShit:FlxText = new FlxText(-4, FlxG.height - 24, FlxG.width,
       "(DEV BUILD!!! - " + CoolUtil.gitCommitBranch + " - " + CoolUtil.gitCommitHash + ")", 12);
     versionShit.scrollFactor.set();
-    versionShit.setFormat(Paths.font("BAUHS93.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     versionShit.antialiasing = ClientPrefs.globalAntialiasing;
     add(versionShit);
     #end

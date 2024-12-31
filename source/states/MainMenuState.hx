@@ -147,7 +147,7 @@ class MainMenuState extends MusicBeatState
         + ")" #end,
       12);
     versionShit.scrollFactor.set();
-    versionShit.setFormat(Paths.font("BAUHS93.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     versionShit.antialiasing = ClientPrefs.globalAntialiasing;
     add(versionShit);
 

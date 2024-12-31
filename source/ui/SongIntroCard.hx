@@ -49,14 +49,14 @@ class SongIntroCard extends FlxSpriteGroup
     _cardObjBelly.updateHitbox();
     add(_cardObjBelly);
 
-    _textObj = new FlxText(131.875, 273.75, 537.5, songDisplayName, Std.int(36 * _sizeMultipFromSixForty));
-    _textObj.setFormat(Paths.font("BAUHS93.ttf"), 50, color, FlxTextAlign.CENTER, NONE);
+    _textObj = new FlxText(131.875, 273.75, 537.5, songDisplayName, Std.int(32 * _sizeMultipFromSixForty));
+    _textObj.setFormat(Paths.font("comic.ttf"), 42, color, FlxTextAlign.CENTER, NONE);
     _textObj.antialiasing = ClientPrefs.globalAntialiasing;
     _textObj.bold = true;
     add(_textObj);
 
-    _credObj = new FlxText(131.875, 327.5, 537.5, "Composed by " + composer, 15);
-    _credObj.setFormat(Paths.font("BAUHS93.ttf"), 20, FlxColor.BLACK, FlxTextAlign.CENTER, NONE);
+    _credObj = new FlxText(131.875, 327.5, 537.5, "Composed by " + composer, 12);
+    _credObj.setFormat(Paths.font("comic.ttf"), 16, FlxColor.BLACK, FlxTextAlign.CENTER, NONE);
     _credObj.antialiasing = ClientPrefs.globalAntialiasing;
     add(_credObj);
   }

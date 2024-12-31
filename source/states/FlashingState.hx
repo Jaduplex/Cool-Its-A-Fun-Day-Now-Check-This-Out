@@ -39,7 +39,7 @@ class FlashingState extends MusicBeatState
       TextAndLanguage.getPhrase('flash_warning',
         "Hey, watch out!\nThis Mod contains some flashing lights!\nPress ENTER to disable them now.\nPress ESCAPE to ignore this message.\n(You can turn them off later in the options menu either way.)\nYou've been warned!"),
       32);
-    warnText.setFormat(Paths.font("BAUHS93.ttf"), 32, FlxColor.WHITE, CENTER);
+    warnText.setFormat(Paths.font("comic.ttf"), 32, FlxColor.WHITE, CENTER);
     warnText.screenCenter(Y);
     warnText.antialiasing = ClientPrefs.globalAntialiasing;
     add(warnText);
@@ -55,7 +55,7 @@ class FlashingState extends MusicBeatState
     var versionShit:FlxText = new FlxText(-4, FlxG.height - 24, FlxG.width,
       "(DEV BUILD!!! - " + CoolUtil.gitCommitBranch + " - " + CoolUtil.gitCommitHash + ")", 12);
     versionShit.scrollFactor.set();
-    versionShit.setFormat(Paths.font("BAUHS93.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
+    versionShit.setFormat(Paths.font("comic.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     versionShit.antialiasing = ClientPrefs.globalAntialiasing;
     add(versionShit);
     #end

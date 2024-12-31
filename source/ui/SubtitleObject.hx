@@ -19,7 +19,7 @@ class SubtitleObject extends FlxSpriteGroup
   public var _color:FlxColor = FlxColor.WHITE;
   public var _secondColor:FlxColor = FlxColor.BLACK;
   public var _borderType:FlxTextBorderStyle = FlxTextBorderStyle.OUTLINE_FAST;
-  public var _fontChoice:String = Paths.font("BAUHS93.ttf");
+  public var _fontChoice:String = Paths.font("comic.ttf");
   public var _borderSize:Float = 2;
   public var _doAa:Bool = true;
 
@@ -91,7 +91,7 @@ class SubtitleObject extends FlxSpriteGroup
         _color = FlxColor.WHITE;
         _secondColor = FlxColor.BLACK;
         _borderType = FlxTextBorderStyle.OUTLINE_FAST;
-        _fontChoice = Paths.font("BAUHS93.ttf");
+        _fontChoice = Paths.font("comic.ttf");
         _borderSize = 1.5;
         _doAa = true;
       case INVERTED:
@@ -99,7 +99,7 @@ class SubtitleObject extends FlxSpriteGroup
         _color = FlxColor.BLACK;
         _secondColor = FlxColor.WHITE;
         _borderType = FlxTextBorderStyle.OUTLINE_FAST;
-        _fontChoice = Paths.font("BAUHS93.ttf");
+        _fontChoice = Paths.font("comic.ttf");
         _borderSize = 1.5;
         _doAa = true;
       case SCIENCEY:
