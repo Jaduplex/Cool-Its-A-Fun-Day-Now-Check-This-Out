@@ -1,26 +1,22 @@
 package states;
 
+import flixel.tweens.FlxEase;
 import util.RandomUtil;
 import ui.TransitionScreenshotObject;
-import util.EaseUtil;
 import visuals.PixelPerfectSprite;
 import shaders.ColorSwap;
 import backend.ClientPrefs;
-import ui.Alphabet;
 import backend.Conductor;
 import util.CoolUtil;
 import flixel.text.FlxText;
 import lime.app.Application;
 import flixel.FlxG;
-import flixel.FlxSprite;
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.transition.FlxTransitionableState;
-import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import openfl.Assets;
 #if desktop
 import backend.Discord.DiscordClient;
 #end
@@ -33,22 +29,12 @@ class TitleState extends MusicBeatState
 
   public var transitioning:Bool = false;
 
-  private var screenCover:PixelPerfectSprite;
-
-  private var credGroup:FlxGroup;
-  private var credTextShit:Alphabet;
-  private var textGroup:FlxTypedGroup<Alphabet>;
-
   private var exitButton:PixelPerfectSprite;
   private var playButton:PixelPerfectSprite;
 
-  private var curWacky:Array<String> = [];
+  private var man:PixelPerfectSprite;
 
   private var tppLogo:PixelPerfectSprite;
-
-  private var skippedIntro:Bool = false;
-
-  private var logo:PixelPerfectSprite;
 
   private var swagShader:ColorSwap = null;
 
@@ -75,12 +61,6 @@ class TitleState extends MusicBeatState
 
     RandomUtil.rerollRandomness();
 
-    curWacky = RandomUtil.randomLogic.getObject(getIntroTextShit());
-
-    var bg:FlxSprite = new FlxSprite();
-    bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
-    add(bg);
-
     if (FlxG.sound.music == null)
     {
       FlxG.sound.playMusic(Paths.music('mus_pauperized'));
@@ -89,23 +69,41 @@ class TitleState extends MusicBeatState
 
     swagShader = new ColorSwap();
 
-    var objects:PixelPerfectSprite = new PixelPerfectSprite(640, 0).loadGraphic(Paths.image('title/obj'));
-    objects.antialiasing = false;
-    objects.scale.set(2, 2);
-    objects.updateHitbox();
-    objects.shader = swagShader.shader;
-    add(objects);
+    var back:PixelPerfectSprite = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/back'));
+    back.antialiasing = false;
+    back.screenCenter();
+    back.shader = swagShader.shader;
+    add(back);
 
-    logo = new PixelPerfectSprite(490, 0);
-    logo.frames = Paths.getSparrowAtlas('title/logo');
+    var logo:PixelPerfectSprite = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/logo'));
     logo.antialiasing = false;
-    logo.animation.addByPrefix('bump', 'idle', 24, false);
-    logo.animation.play('bump');
+    logo.shader = swagShader.shader;
     add(logo);
+
+    var overlay:PixelPerfectSprite = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/overlay'));
+    overlay.antialiasing = false;
+    overlay.screenCenter();
+    overlay.shader = swagShader.shader;
+    add(overlay);
+
+    var shadow:PixelPerfectSprite = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/shadow'));
+    shadow.antialiasing = false;
+    shadow.screenCenter();
+    shadow.shader = swagShader.shader;
+    add(shadow);
+
+    man = new PixelPerfectSprite(0, 0).loadGraphic(Paths.image('title/man'), true, 1280, 720);
+    man.animation.add('idle', [0, 1], 8, true);
+    man.animation.play('idle', true);
+    man.screenCenter();
+    man.antialiasing = false;
+    man.shader = swagShader.shader;
+    add(man);
 
     var tppWatermarkTittle:PixelPerfectSprite = new PixelPerfectSprite(8, 590).loadGraphic(Paths.image("title/tpp"));
     tppWatermarkTittle.setGraphicSize(256);
     tppWatermarkTittle.updateHitbox();
+    tppWatermarkTittle.alpha = 0.5;
     add(tppWatermarkTittle);
 
     exitButton = new PixelPerfectSprite(8, 8).loadGraphic(Paths.image('title/close'));
@@ -117,25 +115,6 @@ class TitleState extends MusicBeatState
     playButton.scale.set(2, 2);
     playButton.updateHitbox();
     add(playButton);
-
-    credGroup = new FlxGroup();
-    add(credGroup);
-
-    textGroup = new FlxTypedGroup<Alphabet>();
-
-    screenCover = new PixelPerfectSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
-    credGroup.add(screenCover);
-
-    credTextShit = new Alphabet(0, 20, "", true);
-    credTextShit.screenCenter();
-    credTextShit.visible = false;
-
-    tppLogo = new PixelPerfectSprite().loadGraphic(Paths.image("title/tpp"));
-    tppLogo.screenCenter();
-    tppLogo.y = 70;
-    tppLogo.antialiasing = false;
-    tppLogo.visible = false;
-    add(tppLogo);
 
     var transThing = new TransitionScreenshotObject();
     add(transThing);
@@ -152,33 +131,11 @@ class TitleState extends MusicBeatState
 
     super.create();
 
-    if (initialized)
-    {
-      skipIntro(true);
-    }
-    else
-    {
-      initialized = true;
-    }
+    initialized = true;
 
     #if DEVELOPERBUILD
     perf.print();
     #end
-  }
-
-  public function getIntroTextShit():Array<Array<String>>
-  {
-    var fullText:String = Assets.getText(Paths.txt('introText'));
-
-    var firstArray:Array<String> = fullText.split('\n');
-    var swagGoodArray:Array<Array<String>> = [];
-
-    for (i in firstArray)
-    {
-      swagGoodArray.push(i.split('--'));
-    }
-
-    return swagGoodArray;
   }
 
   override function update(elapsed:Float)
@@ -204,7 +161,7 @@ class TitleState extends MusicBeatState
 
       if (!transitioning)
       {
-        if (skippedIntro && FlxG.mouse.overlaps(exitButton, FlxG.camera) && !transitioning)
+        if (FlxG.mouse.overlaps(exitButton, FlxG.camera) && !transitioning)
         {
           if (FlxG.mouse.justPressed)
           {
@@ -212,7 +169,7 @@ class TitleState extends MusicBeatState
           }
         }
 
-        if (skippedIntro && FlxG.mouse.overlaps(playButton, FlxG.camera) && !transitioning)
+        if (FlxG.mouse.overlaps(playButton, FlxG.camera) && !transitioning)
         {
           if (FlxG.mouse.justPressed)
           {
@@ -221,7 +178,7 @@ class TitleState extends MusicBeatState
         }
       }
 
-      if (initialized && !transitioning && skippedIntro)
+      if (initialized && !transitioning)
       {
         if (pressedEnter)
         {
@@ -231,7 +188,7 @@ class TitleState extends MusicBeatState
 
           FlxTween.tween(playButton, {'scale.x': 0.01, 'scale.y': 0.01}, 0.25,
             {
-              ease: EaseUtil.stepped(4),
+              ease: FlxEase.cubeInOut,
               onComplete: function fuckstween(t:FlxTween)
               {
                 playButton.alpha = 0;
@@ -242,7 +199,7 @@ class TitleState extends MusicBeatState
 
           FlxTween.tween(exitButton, {'scale.x': 0.01, 'scale.y': 0.01}, 0.25,
             {
-              ease: EaseUtil.stepped(4),
+              ease: FlxEase.cubeInOut,
               onComplete: function fuckstween(t:FlxTween)
               {
                 exitButton.alpha = 0;
@@ -260,11 +217,6 @@ class TitleState extends MusicBeatState
             closedState = true;
           });
         }
-      }
-
-      if (initialized && pressedEnter && !skippedIntro)
-      {
-        skipIntro();
       }
     }
 
@@ -291,9 +243,13 @@ class TitleState extends MusicBeatState
     FlxG.sound.music.stop();
     FlxG.sound.music = null;
 
+    FlxG.camera.stopShake();
+
+    FlxTween.tween(man, {alpha: 0}, 0.1);
+
     FlxTween.tween(playButton, {'scale.x': 0.01, 'scale.y': 0.01}, 0.25,
       {
-        ease: EaseUtil.stepped(4),
+        ease: FlxEase.cubeInOut,
         onComplete: function fuckstween(t:FlxTween)
         {
           playButton.alpha = 0;
@@ -304,7 +260,7 @@ class TitleState extends MusicBeatState
 
     FlxTween.tween(exitButton, {'scale.x': 0.01, 'scale.y': 0.01}, 0.25,
       {
-        ease: EaseUtil.stepped(4),
+        ease: FlxEase.cubeInOut,
         onComplete: function fuckstween(t:FlxTween)
         {
           exitButton.alpha = 0;
@@ -319,128 +275,13 @@ class TitleState extends MusicBeatState
     });
   }
 
-  public function createCoolText(textArray:Array<String>, ?offset:Float = 0)
-  {
-    for (i in 0...textArray.length)
-    {
-      var money:Alphabet = new Alphabet(0, 0, textArray[i], true);
-
-      money.screenCenter(X);
-      money.y += (i * 70) + 200 + offset;
-      money.ID = textGroup.length;
-
-      money.alpha = 0;
-
-      FlxTween.tween(money, {alpha: 1}, 0.1, {ease: EaseUtil.stepped(4)});
-
-      if (credGroup != null && textGroup != null)
-      {
-        credGroup.add(money);
-        textGroup.add(money);
-      }
-    }
-  }
-
-  public function addMoreText(text:String, ?offset:Float = 0)
-  {
-    if (textGroup != null && credGroup != null)
-    {
-      var coolText:Alphabet = new Alphabet(0, 0, text, true);
-
-      coolText.screenCenter(X);
-      coolText.y += (textGroup.length * 70) + 200 + offset;
-      coolText.ID = textGroup.length;
-
-      coolText.alpha = 0;
-
-      FlxTween.tween(coolText, {alpha: 1}, 0.1, {ease: EaseUtil.stepped(4)});
-
-      credGroup.add(coolText);
-      textGroup.add(coolText);
-    }
-  }
-
-  public function deleteCoolText()
-  {
-    while (textGroup.members.length > 0)
-    {
-      var thist = textGroup.members[0];
-      FlxTween.completeTweensOf(thist);
-      credGroup.remove(thist, true);
-      textGroup.remove(thist, true);
-      thist.destroy();
-    }
-  }
-
   override function beatHit()
   {
     super.beatHit();
 
-    if (logo != null)
+    if (!closeSequenceStarted)
     {
-      logo.animation.play('bump', true);
-    }
-
-    if (!closedState && !quitDoingIntroShit)
-    {
-      switch (curBeat)
-      {
-        case 2:
-          tppLogo.visible = true;
-        case 3:
-          createCoolText(['...present'], tppLogo.height);
-        case 4:
-          tppLogo.visible = false;
-          deleteCoolText();
-          createCoolText([curWacky[0]]);
-        case 6:
-          addMoreText(curWacky[1]);
-        case 7:
-          deleteCoolText();
-        case 8:
-          addMoreText('Cool!');
-        case 10:
-          addMoreText("It's a Fun Day!");
-        case 12:
-          addMoreText('Now, Check This Out!');
-        case 15:
-          skipIntro();
-      }
-    }
-  }
-
-  function skipIntro(skipFade:Bool = false):Void
-  {
-    CoolUtil.hasInitializedWindow = true;
-
-    if (!skippedIntro)
-    {
-      quitDoingIntroShit = true;
-
-      remove(tppLogo);
-
-      if (skipFade)
-      {
-        remove(credGroup);
-      }
-      else
-      {
-        for (cool in textGroup)
-        {
-          FlxTween.tween(cool, {alpha: 0}, Conductor.crochet / 1000, {ease: EaseUtil.stepped(4)});
-        }
-
-        FlxTween.tween(screenCover, {alpha: 0}, Conductor.crochet / 1000,
-          {
-            ease: EaseUtil.stepped(4),
-            onComplete: function die(fuuuck:FlxTween)
-            {
-              remove(credGroup);
-            }
-          });
-      }
-
-      skippedIntro = true;
+      FlxG.camera.shake(0.0001, Conductor.crochet / 1000);
     }
   }
 
