@@ -373,9 +373,10 @@ class PlayState extends MusicBeatState
 
   public var elapsedTotal:Float;
 
-  public var vistaWall:VideoCutscene;
+  public var vistaWall:FlxSprite;
   public var twentyNineSky:FlxSprite;
   public var supervistaFloor:FlxSprite;
+	public var svOverlay:FlxSprite;
 
   override public function create()
   {
@@ -564,9 +565,9 @@ class PlayState extends MusicBeatState
       camPos.y += gf.getGraphicMidpoint().y + gf.cameraPosition[1];
     }
 
-    if (removeVariationSuffixes(SONG.song.toLowerCase()) == "d-stitution")
+    if (svOverlay != null)
     {
-      dad.visible = false;
+      add(svOverlay);
     }
 
     Conductor.songPosition = -5000 / Conductor.songPosition;
@@ -735,25 +736,17 @@ class PlayState extends MusicBeatState
     botplayTxt.cameras = [camHUD];
     #end
 
-    if (['superseded', 'd-stitution', 'abstraction'].contains(removeVariationSuffixes(SONG.song.toLowerCase())) && ClientPrefs.shaders)
+    if (['AHHHHHHHHHHHHHHHHHHH'].contains(removeVariationSuffixes(SONG.song.toLowerCase())) && ClientPrefs.shaders)
     {
       var depty:Float = 5;
 
-      switch (removeVariationSuffixes(SONG.song.toLowerCase()))
-      {
-        case 'superseded':
-          depty = 1.25;
-        case 'd-stitution':
-          depty = 4;
-      }
-
       fnafAtFreddys = new FNAFShader(depty);
 
-      if (removeVariationSuffixes(SONG.song.toLowerCase()) != 'superseded')
+      if (removeVariationSuffixes(SONG.song.toLowerCase()) != 'AHHHHHHHHHHH')
       {
         var fnafFilter:ShaderFilter = new ShaderFilter(fnafAtFreddys);
         camGame.filters = [fnafFilter];
-        if (removeVariationSuffixes(SONG.song.toLowerCase()) == 'abstraction')
+        if (removeVariationSuffixes(SONG.song.toLowerCase()) == 'AHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
         {
           camHUD.filters = [fnafFilter];
         }
@@ -855,8 +848,8 @@ class PlayState extends MusicBeatState
     switch (curStage)
     {
       case 'supervista':
-        vistaWall = new VideoCutscene(0, 0);
-        vistaWall.play(Paths.video('vid1337'), vistaWall.loop, 2560, 1440);
+        vistaWall = new FlxSprite().loadGraphic(Paths.image('supervista/bg'));
+        vistaWall.setGraphicSize(3280);
         vistaWall.updateHitbox();
         vistaWall.screenCenter();
         vistaWall.scrollFactor.set(0.25, 0.25);
@@ -877,6 +870,15 @@ class PlayState extends MusicBeatState
         supervistaFloor.updateHitbox();
         supervistaFloor.antialiasing = ClientPrefs.globalAntialiasing;
         add(supervistaFloor);
+
+        svOverlay = new FlxSprite().loadGraphic(Paths.image('supervista/25'));
+        svOverlay.scale.set(1.5, 1.5);
+        svOverlay.updateHitbox();
+        svOverlay.screenCenter();
+        svOverlay.scrollFactor.set(0, 0);
+        svOverlay.blend = BlendMode.SCREEN;
+        svOverlay.alpha = 0.3;
+        svOverlay.antialiasing = ClientPrefs.globalAntialiasing;
       default:
     }
 
