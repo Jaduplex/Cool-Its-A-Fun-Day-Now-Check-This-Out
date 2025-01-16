@@ -1,5 +1,7 @@
 package states;
 
+import util.RandomUtil;
+import flixel.FlxSprite;
 import ui.TransitionScreenshotObject;
 import util.EaseUtil;
 import visuals.PixelPerfectSprite;
@@ -36,13 +38,11 @@ class MainMenuState extends MusicBeatState
 
   private var optionShit:Array<String> = ['freeplay', 'options'];
 
-  private var magenta:PixelPerfectSprite;
-
   public var debugKeys:Array<FlxKey>;
 
   private var sideThing:PixelPerfectSprite;
 
-  private var funkay:PixelPerfectSprite;
+  private var cloudarray:Array<FlxSprite> = [];
 
   override function create()
   {
@@ -77,38 +77,40 @@ class MainMenuState extends MusicBeatState
     transIn = FlxTransitionableState.defaultTransIn;
     transOut = FlxTransitionableState.defaultTransOut;
 
-    var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
+    var night:String = '';
+    if ((Date.now().getHours() <= 5) || (Date.now().getHours() >= 19))
+    {
+      night = 'Night';
+    }
 
-    var bg:PixelPerfectSprite = new PixelPerfectSprite(-80).loadGraphic(Paths.image('bg/menuBG'));
-    bg.scrollFactor.set(0, yScroll);
+    var bg:PixelPerfectSprite = new PixelPerfectSprite().loadGraphic(Paths.image('mainmenu/skybox' + night));
+    bg.antialiasing = ClientPrefs.globalAntialiasing;
     bg.updateHitbox();
     bg.screenCenter();
     add(bg);
 
-    magenta = new PixelPerfectSprite(-80).loadGraphic(Paths.image('bg/menuDesat'));
-    magenta.scrollFactor.set(0, yScroll);
-    magenta.updateHitbox();
-    magenta.screenCenter();
-    magenta.visible = false;
-    magenta.color = 0xFFfd719b;
-    add(magenta);
+    for (i in 0...5)
+    {
+      var newCloud:FlxSprite = new FlxSprite((182 * i) + RandomUtil.randomLogic.float(-50, 50),
+        RandomUtil.randomLogic.float(-10, 200)).loadGraphic(Paths.image('mainmenu/clouds' + night + '/' + RandomUtil.randomVisuals.int(1, 3)));
+      newCloud.antialiasing = ClientPrefs.globalAntialiasing;
+      newCloud.velocity.x = RandomUtil.randomLogic.float(15, 50);
+      add(newCloud);
+      cloudarray.push(newCloud);
+    }
 
-    var transThing = new TransitionScreenshotObject();
-    add(transThing);
-    transThing.fadeout();
-
-    funkay = new PixelPerfectSprite(0, 800).loadGraphic(Paths.image("mainmenu/mark_story_mode"));
-    funkay.x = 1280 - funkay.width;
-    funkay.antialiasing = ClientPrefs.globalAntialiasing;
-    add(funkay);
-
-    FlxTween.tween(funkay, {y: 0}, 1, {startDelay: 0.75, ease: FlxEase.expoOut});
+    var land:FlxSprite = new FlxSprite(640).loadGraphic(Paths.image('mainmenu/land' + night));
+    land.antialiasing = ClientPrefs.globalAntialiasing;
+    add(land);
 
     sideThing = new PixelPerfectSprite().loadGraphic(Paths.image("mainmenu/mm_side"));
-    sideThing.scale.set(2, 2);
     sideThing.updateHitbox();
-    sideThing.x -= 512;
+    sideThing.antialiasing = ClientPrefs.globalAntialiasing;
     add(sideThing);
+
+    var logo:PixelPerfectSprite = new PixelPerfectSprite(650, 0).loadGraphic(Paths.image('mainmenu/log'));
+    logo.antialiasing = ClientPrefs.globalAntialiasing;
+    add(logo);
 
     menuItems = new FlxTypedGroup<MainMenuButton>();
     add(menuItems);
@@ -119,21 +121,12 @@ class MainMenuState extends MusicBeatState
     {
       var menuItem:MainMenuButton = new MainMenuButton(35, 32.5 + (190 * i), optionShit[i], scale);
       menuItem.ID = i;
-      menuItem.alpha = 0;
       menuItems.add(menuItem);
     }
 
-    FlxTween.tween(sideThing, {x: 0}, 0.5,
-      {
-        ease: FlxEase.cubeOut,
-        onComplete: function fuock(fuer:FlxTween)
-        {
-          for (member in menuItems.members)
-          {
-            FlxTween.tween(member, {alpha: 1}, 0.25, {ease: EaseUtil.stepped(4), startDelay: (0.15 * member.ID)});
-          }
-        }
-      });
+    var transThing = new TransitionScreenshotObject();
+    add(transThing);
+    transThing.fadeout();
 
     var versionShit:FlxText = new FlxText(-4, #if DEVELOPERBUILD FlxG.height
       - 44 #else FlxG.height
@@ -174,6 +167,16 @@ class MainMenuState extends MusicBeatState
       Conductor.songPosition = FlxG.sound.music.time;
     }
 
+    for (i in cloudarray)
+    {
+      if (i.x >= 1300)
+      {
+        i.x = RandomUtil.randomLogic.float(-25, 250);
+        i.y = RandomUtil.randomLogic.float(-10, 200);
+        i.velocity.x = RandomUtil.randomLogic.float(15, 50);
+      }
+    }
+
     if (!selectedSomethin)
     {
       if (controls.UI_UP_P)
@@ -202,24 +205,6 @@ class MainMenuState extends MusicBeatState
         selectedSomethin = true;
 
         FlxG.sound.play(Paths.sound('confirmMenu'));
-
-        if (ClientPrefs.flashing)
-        {
-          FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-        }
-
-        FlxTween.cancelTweensOf(sideThing);
-        FlxTween.cancelTweensOf(funkay);
-
-        FlxTween.tween(sideThing, {x: -512}, 0.4,
-          {
-            ease: FlxEase.quadOut
-          });
-
-        FlxTween.tween(funkay, {y: 800}, 0.4,
-          {
-            ease: FlxEase.quadOut
-          });
 
         menuItems.forEach(function(spr:MainMenuButton) {
           if (curSelected != spr.ID)
@@ -287,20 +272,14 @@ class MainMenuState extends MusicBeatState
       curSelected = menuItems.length - 1;
     }
 
-    funkay.loadGraphic(Paths.image('mainmenu/mark_' + optionShit[curSelected]));
-
-    funkay.x = 1280 - funkay.width;
-
     menuItems.forEach(function(spr:MainMenuButton) {
       spr.playAnim('idle');
       spr.updateHitbox();
-      spr.x = 35;
 
       if (spr.ID == curSelected)
       {
         spr.playAnim('selected');
         spr.centerOffsets();
-        spr.x = 35;
       }
     });
   }
